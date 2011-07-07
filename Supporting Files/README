@@ -1,0 +1,46 @@
+INSTALL
+
+*) Create Security framework BridgeSupport
+
+source: http://bjeanes.com/2008/04/10/rubycocoa-and-keychain-access
+
+
+If you run irb and obtain the result below
+
+% irb
+>> require 'osx/cocoa'
+=> true
+>> OSX.require_framework 'Security'
+=> true
+>> defined? OSX::SecKeychainAddGenericPassword
+=> nil
+>> defined? OSX::SecKeychainAddGenericPassword()
+=> nil
+>> exit
+
+Then you need to generate the Security framework scripting bridge support for RubyCocoa
+
+1) Generate the bridgesupport file
+
+% gen_bridge_metadata -f Security -o Security.bridgesupport
+
+
+2) Create the default folder where the scripting bridge support file will be found
+
+% mkdir -p ~/Library/BridgeSupport
+
+
+3) Move the file into its place
+
+% mv Security.bridgesupport ~/Library/BridgeSupport/
+
+
+4) Test again to ensure it's now properly picked up
+
+% irb
+>> require 'osx/cocoa'
+=> true
+>> OSX.require_framework 'Security'
+=> true
+>> defined? OSX::SecKeychainAddGenericPassword()
+=> "method"

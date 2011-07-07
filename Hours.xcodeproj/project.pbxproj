@@ -7,28 +7,66 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7847501C13C5620A0065D4F1 /* HSAppDelegate.rb in Resources */ = {isa = PBXBuildFile; fileRef = 7847501213C5620A0065D4F1 /* HSAppDelegate.rb */; };
+		7847501D13C5620A0065D4F1 /* HSBubbleView.rb in Resources */ = {isa = PBXBuildFile; fileRef = 7847501313C5620A0065D4F1 /* HSBubbleView.rb */; };
+		7847501E13C5620A0065D4F1 /* HSCalendarPasswordController.rb in Resources */ = {isa = PBXBuildFile; fileRef = 7847501413C5620A0065D4F1 /* HSCalendarPasswordController.rb */; };
+		7847501F13C5620A0065D4F1 /* HSCalendarsController.rb in Resources */ = {isa = PBXBuildFile; fileRef = 7847501513C5620A0065D4F1 /* HSCalendarsController.rb */; };
+		7847502013C5620A0065D4F1 /* HSLocationsController.rb in Resources */ = {isa = PBXBuildFile; fileRef = 7847501613C5620A0065D4F1 /* HSLocationsController.rb */; };
+		7847502113C5620A0065D4F1 /* HSLogViewController.rb in Resources */ = {isa = PBXBuildFile; fileRef = 7847501713C5620A0065D4F1 /* HSLogViewController.rb */; };
+		7847502213C5620A0065D4F1 /* HSPopupWindow.rb in Resources */ = {isa = PBXBuildFile; fileRef = 7847501813C5620A0065D4F1 /* HSPopupWindow.rb */; };
+		7847502313C5620A0065D4F1 /* HSStatusBarController.rb in Resources */ = {isa = PBXBuildFile; fileRef = 7847501913C5620A0065D4F1 /* HSStatusBarController.rb */; };
+		7847502413C5620A0065D4F1 /* HSStringArrayForPopupMenuTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7847501B13C5620A0065D4F1 /* HSStringArrayForPopupMenuTransformer.m */; };
+		7847502B13C5622D0065D4F1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7847502713C5622D0065D4F1 /* main.m */; };
+		7847502C13C5622D0065D4F1 /* main.rb in Resources */ = {isa = PBXBuildFile; fileRef = 7847502813C5622D0065D4F1 /* main.rb */; };
+		7847502D13C5622D0065D4F1 /* README in Resources */ = {isa = PBXBuildFile; fileRef = 7847502913C5622D0065D4F1 /* README */; };
+		7847503313C562560065D4F1 /* icon-stop.png in Resources */ = {isa = PBXBuildFile; fileRef = 7847502F13C562560065D4F1 /* icon-stop.png */; };
+		7847503413C562560065D4F1 /* record_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 7847503013C562560065D4F1 /* record_button.png */; };
+		7847503513C562560065D4F1 /* StatusBarIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7847503113C562560065D4F1 /* StatusBarIcon.png */; };
+		7847503613C562560065D4F1 /* stop_green_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 7847503213C562560065D4F1 /* stop_green_button.png */; };
+		7847504413C562600065D4F1 /* HSCalendarsController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7847503E13C562600065D4F1 /* HSCalendarsController.xib */; };
+		7847504513C562600065D4F1 /* HSLocationsController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7847503F13C562600065D4F1 /* HSLocationsController.xib */; };
+		7847504613C562600065D4F1 /* HSLogViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7847504013C562600065D4F1 /* HSLogViewController.xib */; };
+		7847505113C562F00065D4F1 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7847505013C562F00065D4F1 /* MainMenu.xib */; };
+		7847505413C563010065D4F1 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 7847505213C563010065D4F1 /* Credits.rtf */; };
+		7847505513C563010065D4F1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7847505313C563010065D4F1 /* InfoPlist.strings */; };
 		78508F7313C019A1009F2261 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78508F7213C019A1009F2261 /* Cocoa.framework */; };
-		78508F7D13C019A1009F2261 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 78508F7B13C019A1009F2261 /* InfoPlist.strings */; };
-		78508F8013C019A1009F2261 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 78508F7F13C019A1009F2261 /* main.m */; };
-		78508F8313C019A1009F2261 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 78508F8113C019A1009F2261 /* Credits.rtf */; };
-		78508F8613C019A1009F2261 /* HoursAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 78508F8513C019A1009F2261 /* HoursAppDelegate.m */; };
-		78508F8913C019A1009F2261 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 78508F8713C019A1009F2261 /* MainMenu.xib */; };
+		78508F9013C019D7009F2261 /* RubyCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78508F8F13C019D7009F2261 /* RubyCocoa.framework */; };
+		78508F9C13C2164F009F2261 /* ApplicationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78508F9B13C2164F009F2261 /* ApplicationServices.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7847501213C5620A0065D4F1 /* HSAppDelegate.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; name = HSAppDelegate.rb; path = Classes/HSAppDelegate.rb; sourceTree = SOURCE_ROOT; };
+		7847501313C5620A0065D4F1 /* HSBubbleView.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; name = HSBubbleView.rb; path = Classes/HSBubbleView.rb; sourceTree = SOURCE_ROOT; };
+		7847501413C5620A0065D4F1 /* HSCalendarPasswordController.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; name = HSCalendarPasswordController.rb; path = Classes/HSCalendarPasswordController.rb; sourceTree = SOURCE_ROOT; };
+		7847501513C5620A0065D4F1 /* HSCalendarsController.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; name = HSCalendarsController.rb; path = Classes/HSCalendarsController.rb; sourceTree = SOURCE_ROOT; };
+		7847501613C5620A0065D4F1 /* HSLocationsController.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; name = HSLocationsController.rb; path = Classes/HSLocationsController.rb; sourceTree = SOURCE_ROOT; };
+		7847501713C5620A0065D4F1 /* HSLogViewController.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; name = HSLogViewController.rb; path = Classes/HSLogViewController.rb; sourceTree = SOURCE_ROOT; };
+		7847501813C5620A0065D4F1 /* HSPopupWindow.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; name = HSPopupWindow.rb; path = Classes/HSPopupWindow.rb; sourceTree = SOURCE_ROOT; };
+		7847501913C5620A0065D4F1 /* HSStatusBarController.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; name = HSStatusBarController.rb; path = Classes/HSStatusBarController.rb; sourceTree = SOURCE_ROOT; };
+		7847501A13C5620A0065D4F1 /* HSStringArrayForPopupMenuTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HSStringArrayForPopupMenuTransformer.h; path = Classes/HSStringArrayForPopupMenuTransformer.h; sourceTree = SOURCE_ROOT; };
+		7847501B13C5620A0065D4F1 /* HSStringArrayForPopupMenuTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HSStringArrayForPopupMenuTransformer.m; path = Classes/HSStringArrayForPopupMenuTransformer.m; sourceTree = SOURCE_ROOT; };
+		7847502513C5622D0065D4F1 /* Hours-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Hours-Info.plist"; path = "Supporting Files/Hours-Info.plist"; sourceTree = SOURCE_ROOT; };
+		7847502613C5622D0065D4F1 /* Hours-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Hours-Prefix.pch"; path = "Supporting Files/Hours-Prefix.pch"; sourceTree = SOURCE_ROOT; };
+		7847502713C5622D0065D4F1 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = "Supporting Files/main.m"; sourceTree = SOURCE_ROOT; };
+		7847502813C5622D0065D4F1 /* main.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; name = main.rb; path = "Supporting Files/main.rb"; sourceTree = SOURCE_ROOT; };
+		7847502913C5622D0065D4F1 /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README; path = "Supporting Files/README"; sourceTree = SOURCE_ROOT; };
+		7847502F13C562560065D4F1 /* icon-stop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-stop.png"; path = "Resources/Images/icon-stop.png"; sourceTree = SOURCE_ROOT; };
+		7847503013C562560065D4F1 /* record_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = record_button.png; path = Resources/Images/record_button.png; sourceTree = SOURCE_ROOT; };
+		7847503113C562560065D4F1 /* StatusBarIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = StatusBarIcon.png; path = Resources/Images/StatusBarIcon.png; sourceTree = SOURCE_ROOT; };
+		7847503213C562560065D4F1 /* stop_green_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = stop_green_button.png; path = Resources/Images/stop_green_button.png; sourceTree = SOURCE_ROOT; };
+		7847503E13C562600065D4F1 /* HSCalendarsController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HSCalendarsController.xib; path = "Resources/XIB files/HSCalendarsController.xib"; sourceTree = SOURCE_ROOT; };
+		7847503F13C562600065D4F1 /* HSLocationsController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HSLocationsController.xib; path = "Resources/XIB files/HSLocationsController.xib"; sourceTree = SOURCE_ROOT; };
+		7847504013C562600065D4F1 /* HSLogViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HSLogViewController.xib; path = "Resources/XIB files/HSLogViewController.xib"; sourceTree = SOURCE_ROOT; };
+		7847505013C562F00065D4F1 /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MainMenu.xib; path = "Resources/XIB files/MainMenu.xib"; sourceTree = SOURCE_ROOT; };
+		7847505213C563010065D4F1 /* Credits.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; name = Credits.rtf; path = "Supporting Files/Credits.rtf"; sourceTree = SOURCE_ROOT; };
+		7847505313C563010065D4F1 /* InfoPlist.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = InfoPlist.strings; path = "Supporting Files/InfoPlist.strings"; sourceTree = SOURCE_ROOT; };
 		78508F6E13C019A1009F2261 /* Hours.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hours.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		78508F7213C019A1009F2261 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		78508F7513C019A1009F2261 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		78508F7613C019A1009F2261 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		78508F7713C019A1009F2261 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		78508F7A13C019A1009F2261 /* Hours-Info.plist */ = {isa = PBXFileReference; path = "Hours-Info.plist"; sourceTree = "<group>"; };
-		78508F7C13C019A1009F2261 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		78508F7E13C019A1009F2261 /* Hours-Prefix.pch */ = {isa = PBXFileReference; path = "Hours-Prefix.pch"; sourceTree = "<group>"; };
-		78508F7F13C019A1009F2261 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		78508F8213C019A1009F2261 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
-		78508F8413C019A1009F2261 /* HoursAppDelegate.h */ = {isa = PBXFileReference; path = HoursAppDelegate.h; sourceTree = "<group>"; };
-		78508F8513C019A1009F2261 /* HoursAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HoursAppDelegate.m; sourceTree = "<group>"; };
-		78508F8813C019A1009F2261 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		78508F8F13C019D7009F2261 /* RubyCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RubyCocoa.framework; path = System/Library/Frameworks/RubyCocoa.framework; sourceTree = SDKROOT; };
+		78508F9B13C2164F009F2261 /* ApplicationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApplicationServices.framework; path = System/Library/Frameworks/ApplicationServices.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,6 +74,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				78508F9C13C2164F009F2261 /* ApplicationServices.framework in Frameworks */,
+				78508F9013C019D7009F2261 /* RubyCocoa.framework in Frameworks */,
 				78508F7313C019A1009F2261 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -43,11 +83,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7847502E13C5623F0065D4F1 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				7847502F13C562560065D4F1 /* icon-stop.png */,
+				7847503013C562560065D4F1 /* record_button.png */,
+				7847503113C562560065D4F1 /* StatusBarIcon.png */,
+				7847503213C562560065D4F1 /* stop_green_button.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
 		78508F6313C019A0009F2261 = {
 			isa = PBXGroup;
 			children = (
 				78508F7813C019A1009F2261 /* Hours */,
 				78508F7113C019A1009F2261 /* Frameworks */,
+				78508F9F13C24A77009F2261 /* Resources */,
 				78508F6F13C019A1009F2261 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -63,6 +115,8 @@
 		78508F7113C019A1009F2261 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				78508F9B13C2164F009F2261 /* ApplicationServices.framework */,
+				78508F8F13C019D7009F2261 /* RubyCocoa.framework */,
 				78508F7213C019A1009F2261 /* Cocoa.framework */,
 				78508F7413C019A1009F2261 /* Other Frameworks */,
 			);
@@ -82,9 +136,7 @@
 		78508F7813C019A1009F2261 /* Hours */ = {
 			isa = PBXGroup;
 			children = (
-				78508F8413C019A1009F2261 /* HoursAppDelegate.h */,
-				78508F8513C019A1009F2261 /* HoursAppDelegate.m */,
-				78508F8713C019A1009F2261 /* MainMenu.xib */,
+				789F383813C5602E00234820 /* Classes */,
 				78508F7913C019A1009F2261 /* Supporting Files */,
 			);
 			path = Hours;
@@ -93,13 +145,53 @@
 		78508F7913C019A1009F2261 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				78508F7A13C019A1009F2261 /* Hours-Info.plist */,
-				78508F7B13C019A1009F2261 /* InfoPlist.strings */,
-				78508F7E13C019A1009F2261 /* Hours-Prefix.pch */,
-				78508F7F13C019A1009F2261 /* main.m */,
-				78508F8113C019A1009F2261 /* Credits.rtf */,
+				7847505213C563010065D4F1 /* Credits.rtf */,
+				7847505313C563010065D4F1 /* InfoPlist.strings */,
+				7847502513C5622D0065D4F1 /* Hours-Info.plist */,
+				7847502613C5622D0065D4F1 /* Hours-Prefix.pch */,
+				7847502713C5622D0065D4F1 /* main.m */,
+				7847502813C5622D0065D4F1 /* main.rb */,
+				7847502913C5622D0065D4F1 /* README */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		78508F9F13C24A77009F2261 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				7847502E13C5623F0065D4F1 /* Images */,
+				789F383713C5600700234820 /* XIB files */,
+			);
+			name = Resources;
+			path = Hours;
+			sourceTree = "<group>";
+		};
+		789F383713C5600700234820 /* XIB files */ = {
+			isa = PBXGroup;
+			children = (
+				7847505013C562F00065D4F1 /* MainMenu.xib */,
+				7847503E13C562600065D4F1 /* HSCalendarsController.xib */,
+				7847503F13C562600065D4F1 /* HSLocationsController.xib */,
+				7847504013C562600065D4F1 /* HSLogViewController.xib */,
+			);
+			name = "XIB files";
+			sourceTree = "<group>";
+		};
+		789F383813C5602E00234820 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				7847501213C5620A0065D4F1 /* HSAppDelegate.rb */,
+				7847501313C5620A0065D4F1 /* HSBubbleView.rb */,
+				7847501413C5620A0065D4F1 /* HSCalendarPasswordController.rb */,
+				7847501513C5620A0065D4F1 /* HSCalendarsController.rb */,
+				7847501613C5620A0065D4F1 /* HSLocationsController.rb */,
+				7847501713C5620A0065D4F1 /* HSLogViewController.rb */,
+				7847501813C5620A0065D4F1 /* HSPopupWindow.rb */,
+				7847501913C5620A0065D4F1 /* HSStatusBarController.rb */,
+				7847501A13C5620A0065D4F1 /* HSStringArrayForPopupMenuTransformer.h */,
+				7847501B13C5620A0065D4F1 /* HSStringArrayForPopupMenuTransformer.m */,
+			);
+			name = Classes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -149,9 +241,26 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				78508F7D13C019A1009F2261 /* InfoPlist.strings in Resources */,
-				78508F8313C019A1009F2261 /* Credits.rtf in Resources */,
-				78508F8913C019A1009F2261 /* MainMenu.xib in Resources */,
+				7847501C13C5620A0065D4F1 /* HSAppDelegate.rb in Resources */,
+				7847501D13C5620A0065D4F1 /* HSBubbleView.rb in Resources */,
+				7847501E13C5620A0065D4F1 /* HSCalendarPasswordController.rb in Resources */,
+				7847501F13C5620A0065D4F1 /* HSCalendarsController.rb in Resources */,
+				7847502013C5620A0065D4F1 /* HSLocationsController.rb in Resources */,
+				7847502113C5620A0065D4F1 /* HSLogViewController.rb in Resources */,
+				7847502213C5620A0065D4F1 /* HSPopupWindow.rb in Resources */,
+				7847502313C5620A0065D4F1 /* HSStatusBarController.rb in Resources */,
+				7847502C13C5622D0065D4F1 /* main.rb in Resources */,
+				7847502D13C5622D0065D4F1 /* README in Resources */,
+				7847503313C562560065D4F1 /* icon-stop.png in Resources */,
+				7847503413C562560065D4F1 /* record_button.png in Resources */,
+				7847503513C562560065D4F1 /* StatusBarIcon.png in Resources */,
+				7847503613C562560065D4F1 /* stop_green_button.png in Resources */,
+				7847504413C562600065D4F1 /* HSCalendarsController.xib in Resources */,
+				7847504513C562600065D4F1 /* HSLocationsController.xib in Resources */,
+				7847504613C562600065D4F1 /* HSLogViewController.xib in Resources */,
+				7847505113C562F00065D4F1 /* MainMenu.xib in Resources */,
+				7847505413C563010065D4F1 /* Credits.rtf in Resources */,
+				7847505513C563010065D4F1 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -162,39 +271,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				78508F8013C019A1009F2261 /* main.m in Sources */,
-				78508F8613C019A1009F2261 /* HoursAppDelegate.m in Sources */,
+				7847502413C5620A0065D4F1 /* HSStringArrayForPopupMenuTransformer.m in Sources */,
+				7847502B13C5622D0065D4F1 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		78508F7B13C019A1009F2261 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				78508F7C13C019A1009F2261 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		78508F8113C019A1009F2261 /* Credits.rtf */ = {
-			isa = PBXVariantGroup;
-			children = (
-				78508F8213C019A1009F2261 /* en */,
-			);
-			name = Credits.rtf;
-			sourceTree = "<group>";
-		};
-		78508F8713C019A1009F2261 /* MainMenu.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				78508F8813C019A1009F2261 /* en */,
-			);
-			name = MainMenu.xib;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		78508F8A13C019A1009F2261 /* Debug */ = {
@@ -237,8 +319,9 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Hours/Hours-Prefix.pch";
-				INFOPLIST_FILE = "Hours/Hours-Info.plist";
+				GCC_PREFIX_HEADER = "Supporting Files/Hours-Prefix.pch";
+				INFOPLIST_FILE = "Supporting Files/Hours-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.5;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -252,8 +335,9 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Hours/Hours-Prefix.pch";
-				INFOPLIST_FILE = "Hours/Hours-Info.plist";
+				GCC_PREFIX_HEADER = "Supporting Files/Hours-Prefix.pch";
+				INFOPLIST_FILE = "Supporting Files/Hours-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.5;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -278,6 +362,7 @@
 				78508F8E13C019A1009F2261 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
