@@ -1,7 +1,15 @@
-INSTALL
+=== INTRODUCTION ===
+
+This is a simple status bar widget written (mostly) in RubyCocoa to help keep track of time. 
+It integrates with Google Calendar using the GCal4Ruby gem.
+
+Once it's running, click the icon on the status bar to open the widget. Click the status bar icon
+again to close it.
+
+=== INSTALLATION ===
 
 
-*) Install GCal4Ruby gem
+1) Install GCal4Ruby gem
 
 http://cookingandcoding.com/gcal4ruby
 
@@ -9,7 +17,7 @@ http://cookingandcoding.com/gcal4ruby
 
 
 
-*) Create Security framework BridgeSupport
+2) Create Security framework BridgeSupport
 
 source: http://bjeanes.com/2008/04/10/rubycocoa-and-keychain-access
 
@@ -29,22 +37,22 @@ If you run irb and obtain the result below
 
 Then you need to generate the Security framework scripting bridge support for RubyCocoa
 
-1) Generate the bridgesupport file
+2.1) Generate the bridgesupport file
 
 % gen_bridge_metadata -f Security -o Security.bridgesupport
 
 
-2) Create the default folder where the scripting bridge support file will be found
+2.2) Create the default folder where the scripting bridge support file will be found
 
 % mkdir -p ~/Library/BridgeSupport
 
 
-3) Move the file into its place
+2.3) Move the file into its place
 
 % mv Security.bridgesupport ~/Library/BridgeSupport/
 
 
-4) Test again to ensure it's now properly picked up
+2.4) Test again to ensure it's now properly picked up
 
 % irb
 >> require 'osx/cocoa'
@@ -55,7 +63,9 @@ Then you need to generate the Security framework scripting bridge support for Ru
 => "method"
 
 
-*) Images, courtesy of iconfinder.com
+=== NOTICES ===
+
+Images, courtesy of iconfinder.com
 
 Record button: http://www.iconfinder.com/icondetails/38829/32/button_record_icon
 Stop button: http://www.iconfinder.com/icondetails/38849/32/button_green_stop_icon
