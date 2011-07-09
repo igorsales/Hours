@@ -8,7 +8,8 @@
 
 #import "HSStringArrayForPopupMenuTransformer.h"
 
-#define kNameKey @"name"
+#define kDisplayNameKey @"displayName"
+#define kNameKey        @"name"
 
 @implementation HSStringArrayForPopupMenuTransformer
 
@@ -44,9 +45,12 @@
 
     NSMutableArray* newArray = [[NSMutableArray alloc] initWithCapacity:[array count]+1];
     for (id object in array) {
-        NSString* name = [object valueForKey:kNameKey];
+        NSString* name = [object valueForKey:kDisplayNameKey];
         if (name == nil || ![name isKindOfClass:[NSString class]]) {
-            name = @"???";
+            name = [object valueForKey:kNameKey];;
+            if (name == nil || ![name isKindOfClass:[NSString class]]) {
+                name = @"???";
+            }
         }
         [newArray addObject:name];
     }

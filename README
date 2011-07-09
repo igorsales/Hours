@@ -1,5 +1,14 @@
 INSTALL
 
+
+*) Install GCal4Ruby gem
+
+http://cookingandcoding.com/gcal4ruby
+
+% gem install gcal4ruby
+
+
+
 *) Create Security framework BridgeSupport
 
 source: http://bjeanes.com/2008/04/10/rubycocoa-and-keychain-access
@@ -44,3 +53,11 @@ Then you need to generate the Security framework scripting bridge support for Ru
 => true
 >> defined? OSX::SecKeychainAddGenericPassword()
 => "method"
+
+
+*) Images, courtesy of iconfinder.com
+
+Record button: http://www.iconfinder.com/icondetails/38829/32/button_record_icon
+Stop button: http://www.iconfinder.com/icondetails/38849/32/button_green_stop_icon
+Status Bar Icon: http://www.iconfinder.com/icondetails/42176/48/calendar_date_icon
+

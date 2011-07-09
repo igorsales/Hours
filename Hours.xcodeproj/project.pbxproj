@@ -19,16 +19,17 @@
 		7847502B13C5622D0065D4F1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7847502713C5622D0065D4F1 /* main.m */; };
 		7847502C13C5622D0065D4F1 /* main.rb in Resources */ = {isa = PBXBuildFile; fileRef = 7847502813C5622D0065D4F1 /* main.rb */; };
 		7847502D13C5622D0065D4F1 /* README in Resources */ = {isa = PBXBuildFile; fileRef = 7847502913C5622D0065D4F1 /* README */; };
-		7847503313C562560065D4F1 /* icon-stop.png in Resources */ = {isa = PBXBuildFile; fileRef = 7847502F13C562560065D4F1 /* icon-stop.png */; };
-		7847503413C562560065D4F1 /* record_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 7847503013C562560065D4F1 /* record_button.png */; };
-		7847503513C562560065D4F1 /* StatusBarIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7847503113C562560065D4F1 /* StatusBarIcon.png */; };
+		7847503413C562560065D4F1 /* StatusBarIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7847503013C562560065D4F1 /* StatusBarIcon.png */; };
 		7847503613C562560065D4F1 /* stop_green_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 7847503213C562560065D4F1 /* stop_green_button.png */; };
 		7847504413C562600065D4F1 /* HSCalendarsController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7847503E13C562600065D4F1 /* HSCalendarsController.xib */; };
 		7847504513C562600065D4F1 /* HSLocationsController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7847503F13C562600065D4F1 /* HSLocationsController.xib */; };
 		7847504613C562600065D4F1 /* HSLogViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7847504013C562600065D4F1 /* HSLogViewController.xib */; };
-		7847505113C562F00065D4F1 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7847505013C562F00065D4F1 /* MainMenu.xib */; };
-		7847505413C563010065D4F1 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 7847505213C563010065D4F1 /* Credits.rtf */; };
+		7847505113C562F00065D4F1 /* HSStatusBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7847505013C562F00065D4F1 /* HSStatusBar.xib */; };
 		7847505513C563010065D4F1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7847505313C563010065D4F1 /* InfoPlist.strings */; };
+		7847505713C564870065D4F1 /* HSGCalController.rb in Resources */ = {isa = PBXBuildFile; fileRef = 7847505613C564870065D4F1 /* HSGCalController.rb */; };
+		7847506713C6541C0065D4F1 /* HSApplication.rb in Resources */ = {isa = PBXBuildFile; fileRef = 7847506613C6541C0065D4F1 /* HSApplication.rb */; };
+		7847508613C7FCF70065D4F1 /* record_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 7847508513C7FCF70065D4F1 /* record_button.png */; };
+		7847508813C7FF870065D4F1 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 7847508713C7FF870065D4F1 /* LICENSE */; };
 		78508F7313C019A1009F2261 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78508F7213C019A1009F2261 /* Cocoa.framework */; };
 		78508F9013C019D7009F2261 /* RubyCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78508F8F13C019D7009F2261 /* RubyCocoa.framework */; };
 		78508F9C13C2164F009F2261 /* ApplicationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78508F9B13C2164F009F2261 /* ApplicationServices.framework */; };
@@ -49,17 +50,18 @@
 		7847502613C5622D0065D4F1 /* Hours-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Hours-Prefix.pch"; path = "Supporting Files/Hours-Prefix.pch"; sourceTree = SOURCE_ROOT; };
 		7847502713C5622D0065D4F1 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = "Supporting Files/main.m"; sourceTree = SOURCE_ROOT; };
 		7847502813C5622D0065D4F1 /* main.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; name = main.rb; path = "Supporting Files/main.rb"; sourceTree = SOURCE_ROOT; };
-		7847502913C5622D0065D4F1 /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README; path = "Supporting Files/README"; sourceTree = SOURCE_ROOT; };
-		7847502F13C562560065D4F1 /* icon-stop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-stop.png"; path = "Resources/Images/icon-stop.png"; sourceTree = SOURCE_ROOT; };
-		7847503013C562560065D4F1 /* record_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = record_button.png; path = Resources/Images/record_button.png; sourceTree = SOURCE_ROOT; };
-		7847503113C562560065D4F1 /* StatusBarIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = StatusBarIcon.png; path = Resources/Images/StatusBarIcon.png; sourceTree = SOURCE_ROOT; };
+		7847502913C5622D0065D4F1 /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = SOURCE_ROOT; };
+		7847503013C562560065D4F1 /* StatusBarIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = StatusBarIcon.png; path = Resources/Images/StatusBarIcon.png; sourceTree = SOURCE_ROOT; };
 		7847503213C562560065D4F1 /* stop_green_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = stop_green_button.png; path = Resources/Images/stop_green_button.png; sourceTree = SOURCE_ROOT; };
 		7847503E13C562600065D4F1 /* HSCalendarsController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HSCalendarsController.xib; path = "Resources/XIB files/HSCalendarsController.xib"; sourceTree = SOURCE_ROOT; };
 		7847503F13C562600065D4F1 /* HSLocationsController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HSLocationsController.xib; path = "Resources/XIB files/HSLocationsController.xib"; sourceTree = SOURCE_ROOT; };
 		7847504013C562600065D4F1 /* HSLogViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HSLogViewController.xib; path = "Resources/XIB files/HSLogViewController.xib"; sourceTree = SOURCE_ROOT; };
-		7847505013C562F00065D4F1 /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MainMenu.xib; path = "Resources/XIB files/MainMenu.xib"; sourceTree = SOURCE_ROOT; };
-		7847505213C563010065D4F1 /* Credits.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; name = Credits.rtf; path = "Supporting Files/Credits.rtf"; sourceTree = SOURCE_ROOT; };
+		7847505013C562F00065D4F1 /* HSStatusBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HSStatusBar.xib; path = "Resources/XIB files/HSStatusBar.xib"; sourceTree = SOURCE_ROOT; };
 		7847505313C563010065D4F1 /* InfoPlist.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = InfoPlist.strings; path = "Supporting Files/InfoPlist.strings"; sourceTree = SOURCE_ROOT; };
+		7847505613C564870065D4F1 /* HSGCalController.rb */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; fileEncoding = 4; name = HSGCalController.rb; path = Classes/HSGCalController.rb; sourceTree = SOURCE_ROOT; };
+		7847506613C6541C0065D4F1 /* HSApplication.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; name = HSApplication.rb; path = Classes/HSApplication.rb; sourceTree = SOURCE_ROOT; };
+		7847508513C7FCF70065D4F1 /* record_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = record_button.png; path = Resources/Images/record_button.png; sourceTree = SOURCE_ROOT; };
+		7847508713C7FF870065D4F1 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = SOURCE_ROOT; };
 		78508F6E13C019A1009F2261 /* Hours.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hours.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		78508F7213C019A1009F2261 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		78508F7513C019A1009F2261 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -86,9 +88,8 @@
 		7847502E13C5623F0065D4F1 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				7847502F13C562560065D4F1 /* icon-stop.png */,
-				7847503013C562560065D4F1 /* record_button.png */,
-				7847503113C562560065D4F1 /* StatusBarIcon.png */,
+				7847508513C7FCF70065D4F1 /* record_button.png */,
+				7847503013C562560065D4F1 /* StatusBarIcon.png */,
 				7847503213C562560065D4F1 /* stop_green_button.png */,
 			);
 			name = Images;
@@ -97,6 +98,8 @@
 		78508F6313C019A0009F2261 = {
 			isa = PBXGroup;
 			children = (
+				7847508713C7FF870065D4F1 /* LICENSE */,
+				7847502913C5622D0065D4F1 /* README */,
 				78508F7813C019A1009F2261 /* Hours */,
 				78508F7113C019A1009F2261 /* Frameworks */,
 				78508F9F13C24A77009F2261 /* Resources */,
@@ -145,13 +148,11 @@
 		78508F7913C019A1009F2261 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				7847505213C563010065D4F1 /* Credits.rtf */,
 				7847505313C563010065D4F1 /* InfoPlist.strings */,
 				7847502513C5622D0065D4F1 /* Hours-Info.plist */,
 				7847502613C5622D0065D4F1 /* Hours-Prefix.pch */,
 				7847502713C5622D0065D4F1 /* main.m */,
 				7847502813C5622D0065D4F1 /* main.rb */,
-				7847502913C5622D0065D4F1 /* README */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -169,10 +170,10 @@
 		789F383713C5600700234820 /* XIB files */ = {
 			isa = PBXGroup;
 			children = (
-				7847505013C562F00065D4F1 /* MainMenu.xib */,
 				7847503E13C562600065D4F1 /* HSCalendarsController.xib */,
 				7847503F13C562600065D4F1 /* HSLocationsController.xib */,
 				7847504013C562600065D4F1 /* HSLogViewController.xib */,
+				7847505013C562F00065D4F1 /* HSStatusBar.xib */,
 			);
 			name = "XIB files";
 			sourceTree = "<group>";
@@ -180,10 +181,12 @@
 		789F383813C5602E00234820 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				7847506613C6541C0065D4F1 /* HSApplication.rb */,
 				7847501213C5620A0065D4F1 /* HSAppDelegate.rb */,
 				7847501313C5620A0065D4F1 /* HSBubbleView.rb */,
-				7847501413C5620A0065D4F1 /* HSCalendarPasswordController.rb */,
 				7847501513C5620A0065D4F1 /* HSCalendarsController.rb */,
+				7847501413C5620A0065D4F1 /* HSCalendarPasswordController.rb */,
+				7847505613C564870065D4F1 /* HSGCalController.rb */,
 				7847501613C5620A0065D4F1 /* HSLocationsController.rb */,
 				7847501713C5620A0065D4F1 /* HSLogViewController.rb */,
 				7847501813C5620A0065D4F1 /* HSPopupWindow.rb */,
@@ -251,16 +254,17 @@
 				7847502313C5620A0065D4F1 /* HSStatusBarController.rb in Resources */,
 				7847502C13C5622D0065D4F1 /* main.rb in Resources */,
 				7847502D13C5622D0065D4F1 /* README in Resources */,
-				7847503313C562560065D4F1 /* icon-stop.png in Resources */,
-				7847503413C562560065D4F1 /* record_button.png in Resources */,
-				7847503513C562560065D4F1 /* StatusBarIcon.png in Resources */,
+				7847503413C562560065D4F1 /* StatusBarIcon.png in Resources */,
 				7847503613C562560065D4F1 /* stop_green_button.png in Resources */,
 				7847504413C562600065D4F1 /* HSCalendarsController.xib in Resources */,
 				7847504513C562600065D4F1 /* HSLocationsController.xib in Resources */,
 				7847504613C562600065D4F1 /* HSLogViewController.xib in Resources */,
-				7847505113C562F00065D4F1 /* MainMenu.xib in Resources */,
-				7847505413C563010065D4F1 /* Credits.rtf in Resources */,
+				7847505113C562F00065D4F1 /* HSStatusBar.xib in Resources */,
 				7847505513C563010065D4F1 /* InfoPlist.strings in Resources */,
+				7847505713C564870065D4F1 /* HSGCalController.rb in Resources */,
+				7847506713C6541C0065D4F1 /* HSApplication.rb in Resources */,
+				7847508613C7FCF70065D4F1 /* record_button.png in Resources */,
+				7847508813C7FF870065D4F1 /* LICENSE in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

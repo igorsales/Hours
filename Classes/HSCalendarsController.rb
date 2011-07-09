@@ -12,74 +12,62 @@ include OSX
 
 class HSCalendarsController < OSX::NSWindowController
 
-    ib_outlets :arrayController, :popupButton
+    ib_outlets :accountsArrayController
+    ib_outlets :calendarsArrayController
+    ib_outlets :addButton
     
-    ib_action :add
+    ib_action :removeAccount
     ib_action :done
     
     ib_action :presentWindowToAddCalendar
-    ib_action :chooseNewCalendar
     
-    attr_accessor :calendarName
-    attr_accessor :calendarURL
-    attr_accessor :calendarUsername
-    attr_accessor :calendarPassword
-    attr_accessor :selectedCalendarIndex
-    attr_accessor :errorMessage
+    kvc_accessor :username
+    kvc_accessor :password
+    kvc_accessor :errorMessage
+    kvc_accessor :busy
+    alias :busy? :busy
     
     def init
-        initWithWindowNibName('HSCalendarsController')
+        if initWithWindowNibName('HSCalendarsController')
+            @busy = NSNumber.numberWithBool(false)
+        end
+        
+        self
     end
     
     def awakeFromNib
-        # Force the window to be loaded when the object is de-serialized in the main NIB.
         if !isWindowLoaded
+            # Force window to be loaded when it's awaken in the first NIB
             window
         end
     end
     
-    def allCalendars
-        return @arrayController.arrangedObjects if @arrayController
+    def windowDidLoad
+        window.collectionBehavior = NSWindowCollectionBehaviorCanJoinAllSpaces
     end
     
-    def urlFromPasteboardIfApplicable
-        urlString = NSPasteboard.generalPasteboard.stringForType(NSStringPboardType)
-        return if urlString.nil? or !/^http:\/\//.match(urlString)
-        
-        urlString
+    def allCalendars
+        @calendarsArrayController.arrangedObjects if @calendarsArrayController
+    end
+    
+    def allAccounts
+        @accountsArrayController.arrangedObjects if @accountsArrayController
     end
     
     def presentWindowToAddCalendar(sender)
-        urlString = urlFromPasteboardIfApplicable
-        if urlString
-            willChangeValueForKey(:calendarURL)
-            self.calendarURL = urlString
-            didChangeValueForKey(:calendarURL)
-        end
-        
         showWindow(sender)
-        
-        willChangeValueForKey(:selectedCalendarIndex)
-        self.selectedCalendarIndex = 0
-        didChangeValueForKey(:selectedCalendarIndex)
     end
     
     def error(e)
-        willChangeValueForKey(:errorMessage)
-        self.errorMessage = e
-        didChangeValueForKey(:errorMessage)
+        errorMessage = e
     end
     
     def validateForm
         ok = false
 
-        if self.calendarName.nil?
-            error('Calendar name cannot be empty')
-        elsif self.calendarURL.nil?
-            error('Calendar URL cannot be empty')
-        elsif self.calendarUsername.nil?
+        if username.nil?
             error('Username cannot be empty')
-        elsif self.calendarPassword.nil?
+        elsif password.nil?
             error('Password cannot be empty')
         else
             error('')
@@ -89,39 +77,69 @@ class HSCalendarsController < OSX::NSWindowController
         ok
     end
     
-    def add(sender)
-        validateForm or return
-
-        newEntry = { :name => calendarName, :url => calendarURL, :username => calendarUsername }
-        
-        cals = allCalendars
-        if cals.nil?
-            cals = [ newEntry ]
-        else
-            cals = cals + [ newEntry ]
-        end
-
+    def setUserDefaultsValue_forKey(value,key)        
         defaults = NSUserDefaults.standardUserDefaults
-        defaults.setObject_forKey(cals, :myCalendars)
+        defaults.setObject_forKey(value, key)
         defaults.synchronize
+    end
+    
+    def allCalendarsByRemovingCalendars(cals)
+        removeIds = cals.collect { |c| c[:displayName] }
+        cleanCals = allCalendars.select { |c| removeIds.index(c[:displayName]) == nil }
+    end
+            
+    def addCalendars(cals)
+        cals = allCalendarsByRemovingCalendars(cals) + cals
         
-        HSCalendarPasswordController.setPassword_forCalendar_username(self.calendarPassword, self.calendarName, self.calendarUsername)
+        setUserDefaultsValue_forKey(cals, :myCalendars)
+    end
+
+    def removeCalendars(cals)
+        cals = allCalendarsByRemovingCalendars(cals)
         
-        willChangeValueForKey(:selectedCalendarIndex)
-        self.selectedCalendarIndex = cals.count-1
-        didChangeValueForKey(:selectedCalendarIndex)
+        setUserDefaultsValue_forKey(cals, :myCalendars)
+    end
+    
+    def addAccount(sender)
+        validateForm or return
         
-        window.orderOut(sender)
+        self.busy = NSNumber.numberWithBool(true)
+
+        HSGCalController.calendars( { :username => username, :password => password } ) do |calendars|
+            cals = calendars.collect { |c| { :id => c.id, :name => c.title, :displayName => "#{c.title} (#{username})", :username => username } }
+            
+            newEntry = { :username => username, :calendars => cals }
+            
+            accts = allAccounts
+            if accts.nil?
+                accts = [ newEntry ]
+                else
+                accts = accts.select { |a| a[:username] != username }
+                accts = accts + [ newEntry ]
+            end
+            
+            setUserDefaultsValue_forKey(accts, :myAccounts)
+            addCalendars(cals)
+            
+            HSCalendarPasswordController.setPassword_forUsername(password, username)
+            self.busy = NSNumber.numberWithBool(false)
+        end
+    end
+
+    def removeAccount(sender)
+        calsToRemove = @accountsArrayController.selectedObjects
+        calsToRemove = calsToRemove.collect { |c| c[:calendars] }
+        calsToRemove = calsToRemove.flatten
+
+        @accountsArrayController.remove(sender)
+        
+        accts = @accountsArrayController.arrangedObjects
+        setUserDefaultsValue_forKey(accts, :myAccounts)
+        
+        removeCalendars(calsToRemove)
     end
 
     def done(sender)
         window.orderOut(sender)
-    end
-
-    def chooseNewCalendar(sender)
-        calendars = allCalendars
-        if selectedCalendarIndex && calendars && (calendars.count == 0 || selectedCalendarIndex == calendars.count) # Prompt user for new location
-            presentWindowToAddCalendar(sender)
-        end
-    end
+    end    
 end

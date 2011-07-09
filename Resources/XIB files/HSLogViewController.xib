@@ -61,7 +61,7 @@
 			<object class="NSWindowTemplate" id="740970976">
 				<int key="NSWindowStyleMask">9</int>
 				<int key="NSWindowBacking">2</int>
-				<string key="NSWindowRect">{{335, 390}, {281, 296}}</string>
+				<string key="NSWindowRect">{{335, 390}, {324, 296}}</string>
 				<int key="NSWTFlags">1685588992</int>
 				<string key="NSWindowTitle">Hours</string>
 				<string key="NSWindowClass">HSPopupWindow</string>
@@ -145,7 +145,7 @@
 						<object class="NSTextField" id="341263634">
 							<reference key="NSNextResponder" ref="763376004"/>
 							<int key="NSvFlags">268</int>
-							<string key="NSFrame">{{87, 201}, {182, 19}}</string>
+							<string key="NSFrame">{{87, 201}, {225, 19}}</string>
 							<reference key="NSSuperview" ref="763376004"/>
 							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="211781673"/>
@@ -193,7 +193,7 @@
 						<object class="NSTextField" id="111266803">
 							<reference key="NSNextResponder" ref="763376004"/>
 							<int key="NSvFlags">266</int>
-							<string key="NSFrame">{{84, 182}, {162, 14}}</string>
+							<string key="NSFrame">{{84, 182}, {205, 14}}</string>
 							<reference key="NSSuperview" ref="763376004"/>
 							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="531029824"/>
@@ -211,7 +211,7 @@
 						<object class="NSPopUpButton" id="598332173">
 							<reference key="NSNextResponder" ref="763376004"/>
 							<int key="NSvFlags">266</int>
-							<string key="NSFrame">{{84, 245}, {188, 22}}</string>
+							<string key="NSFrame">{{84, 245}, {231, 22}}</string>
 							<reference key="NSSuperview" ref="763376004"/>
 							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="59282351"/>
@@ -289,7 +289,7 @@
 						<object class="NSPopUpButton" id="478968420">
 							<reference key="NSNextResponder" ref="763376004"/>
 							<int key="NSvFlags">266</int>
-							<string key="NSFrame">{{84, 223}, {188, 22}}</string>
+							<string key="NSFrame">{{84, 223}, {231, 22}}</string>
 							<reference key="NSSuperview" ref="763376004"/>
 							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="390501310"/>
@@ -370,7 +370,7 @@
 									<string>NeXT TIFF v4.0 pasteboard type</string>
 								</object>
 							</object>
-							<string key="NSFrame">{{251, 182}, {18, 17}}</string>
+							<string key="NSFrame">{{294, 182}, {18, 17}}</string>
 							<reference key="NSSuperview" ref="763376004"/>
 							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="389307639"/>
@@ -392,7 +392,7 @@
 						<object class="NSButton" id="389307639">
 							<reference key="NSNextResponder" ref="763376004"/>
 							<int key="NSvFlags">265</int>
-							<string key="NSFrame">{{251, 182}, {18, 17}}</string>
+							<string key="NSFrame">{{294, 182}, {18, 17}}</string>
 							<reference key="NSSuperview" ref="763376004"/>
 							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="665202225"/>
@@ -448,7 +448,7 @@
 													<string>public.url</string>
 												</object>
 											</object>
-											<string key="NSFrameSize">{240, 162}</string>
+											<string key="NSFrameSize">{283, 129}</string>
 											<reference key="NSSuperview" ref="307711844"/>
 											<reference key="NSWindow"/>
 											<reference key="NSNextKeyView" ref="827571288"/>
@@ -468,7 +468,7 @@
 													<nil key="NSDelegate"/>
 												</object>
 												<reference key="NSTextView" ref="955259828"/>
-												<double key="NSWidth">240</double>
+												<double key="NSWidth">283</double>
 												<int key="NSTCFlags">1</int>
 											</object>
 											<object class="NSTextViewSharedData" key="NSSharedData">
@@ -532,7 +532,7 @@
 											<nil key="NSDelegate"/>
 										</object>
 									</object>
-									<string key="NSFrame">{{1, 1}, {240, 162}}</string>
+									<string key="NSFrame">{{1, 1}, {283, 162}}</string>
 									<reference key="NSSuperview" ref="665202225"/>
 									<reference key="NSWindow"/>
 									<reference key="NSNextKeyView" ref="955259828"/>
@@ -550,7 +550,7 @@
 								<object class="NSScroller" id="827571288">
 									<reference key="NSNextResponder" ref="665202225"/>
 									<int key="NSvFlags">256</int>
-									<string key="NSFrame">{{241, 1}, {15, 162}}</string>
+									<string key="NSFrame">{{284, 1}, {15, 162}}</string>
 									<reference key="NSSuperview" ref="665202225"/>
 									<reference key="NSWindow"/>
 									<reference key="NSNextKeyView"/>
@@ -573,7 +573,7 @@
 									<double key="NSPercent">0.94565218687057495</double>
 								</object>
 							</object>
-							<string key="NSFrame">{{12, 12}, {257, 164}}</string>
+							<string key="NSFrame">{{12, 12}, {300, 164}}</string>
 							<reference key="NSSuperview" ref="763376004"/>
 							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="262003555"/>
@@ -583,7 +583,7 @@
 							<reference key="NSContentView" ref="307711844"/>
 						</object>
 					</object>
-					<string key="NSFrame">{{7, 11}, {281, 296}}</string>
+					<string key="NSFrame">{{7, 11}, {324, 296}}</string>
 					<reference key="NSSuperview"/>
 					<reference key="NSWindow"/>
 					<reference key="NSNextKeyView" ref="405850897"/>
@@ -608,28 +608,12 @@
 					<int key="connectionID">182</int>
 				</object>
 				<object class="IBConnectionRecord">
-					<object class="IBActionConnection" key="connection">
-						<string key="label">chooseNewLocation:</string>
-						<reference key="source" ref="1050741907"/>
-						<reference key="destination" ref="478968420"/>
-					</object>
-					<int key="connectionID">183</int>
-				</object>
-				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
 						<string key="label">popupButton</string>
 						<reference key="source" ref="1050741907"/>
 						<reference key="destination" ref="478968420"/>
 					</object>
 					<int key="connectionID">190</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBActionConnection" key="connection">
-						<string key="label">chooseNewCalendar:</string>
-						<reference key="source" ref="1011442418"/>
-						<reference key="destination" ref="598332173"/>
-					</object>
-					<int key="connectionID">193</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
@@ -661,23 +645,6 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBBindingConnection" key="connection">
-						<string key="label">selectedIndex: selectedLocationIndex</string>
-						<reference key="source" ref="478968420"/>
-						<reference key="destination" ref="1050741907"/>
-						<object class="NSNibBindingConnector" key="connector">
-							<reference key="NSSource" ref="478968420"/>
-							<reference key="NSDestination" ref="1050741907"/>
-							<string key="NSLabel">selectedIndex: selectedLocationIndex</string>
-							<string key="NSBinding">selectedIndex</string>
-							<string key="NSKeyPath">selectedLocationIndex</string>
-							<reference key="NSPreviousConnector" ref="553532143"/>
-							<int key="NSNibBindingConnectorVersion">2</int>
-						</object>
-					</object>
-					<int key="connectionID">208</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBBindingConnection" key="connection">
 						<string key="label">contentValues: values.myCalendars</string>
 						<reference key="source" ref="598332173"/>
 						<reference key="destination" ref="1070721772"/>
@@ -695,23 +662,6 @@
 						</object>
 					</object>
 					<int key="connectionID">209</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBBindingConnection" key="connection">
-						<string key="label">selectedIndex: selectedCalendarIndex</string>
-						<reference key="source" ref="598332173"/>
-						<reference key="destination" ref="1011442418"/>
-						<object class="NSNibBindingConnector" key="connector">
-							<reference key="NSSource" ref="598332173"/>
-							<reference key="NSDestination" ref="1011442418"/>
-							<string key="NSLabel">selectedIndex: selectedCalendarIndex</string>
-							<string key="NSBinding">selectedIndex</string>
-							<string key="NSKeyPath">selectedCalendarIndex</string>
-							<reference key="NSPreviousConnector" ref="684159525"/>
-							<int key="NSNibBindingConnectorVersion">2</int>
-						</object>
-					</object>
-					<int key="connectionID">210</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBActionConnection" key="connection">
@@ -853,6 +803,125 @@
 						</object>
 					</object>
 					<int key="connectionID">245</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">calendarsController</string>
+						<reference key="source" ref="1001"/>
+						<reference key="destination" ref="1011442418"/>
+					</object>
+					<int key="connectionID">246</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">locationsController</string>
+						<reference key="source" ref="1001"/>
+						<reference key="destination" ref="1050741907"/>
+					</object>
+					<int key="connectionID">247</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">attributedString: log</string>
+						<reference key="source" ref="955259828"/>
+						<reference key="destination" ref="1001"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="955259828"/>
+							<reference key="NSDestination" ref="1001"/>
+							<string key="NSLabel">attributedString: log</string>
+							<string key="NSBinding">attributedString</string>
+							<string key="NSKeyPath">log</string>
+							<object class="NSDictionary" key="NSOptions">
+								<bool key="EncodedWithXMLCoder">YES</bool>
+								<object class="NSArray" key="dict.sortedKeys">
+									<bool key="EncodedWithXMLCoder">YES</bool>
+									<string>NSContinuouslyUpdatesValue</string>
+									<string>NSValidatesImmediately</string>
+								</object>
+								<object class="NSMutableArray" key="dict.values">
+									<bool key="EncodedWithXMLCoder">YES</bool>
+									<boolean value="YES"/>
+									<boolean value="YES"/>
+								</object>
+							</object>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">251</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">delegate</string>
+						<reference key="source" ref="955259828"/>
+						<reference key="destination" ref="1001"/>
+					</object>
+					<int key="connectionID">252</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">calendarsPopup</string>
+						<reference key="source" ref="1001"/>
+						<reference key="destination" ref="598332173"/>
+					</object>
+					<int key="connectionID">253</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">locationsPopup</string>
+						<reference key="source" ref="1001"/>
+						<reference key="destination" ref="478968420"/>
+					</object>
+					<int key="connectionID">254</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">selectedIndex: selectedCalendarIndex</string>
+						<reference key="source" ref="598332173"/>
+						<reference key="destination" ref="1001"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="598332173"/>
+							<reference key="NSDestination" ref="1001"/>
+							<string key="NSLabel">selectedIndex: selectedCalendarIndex</string>
+							<string key="NSBinding">selectedIndex</string>
+							<string key="NSKeyPath">selectedCalendarIndex</string>
+							<reference key="NSPreviousConnector" ref="684159525"/>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">256</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">chooseNewCalendar:</string>
+						<reference key="source" ref="1001"/>
+						<reference key="destination" ref="997762000"/>
+					</object>
+					<int key="connectionID">257</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">chooseNewLocation:</string>
+						<reference key="source" ref="1001"/>
+						<reference key="destination" ref="478968420"/>
+					</object>
+					<int key="connectionID">258</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">selectedIndex: selectedLocationIndex</string>
+						<reference key="source" ref="478968420"/>
+						<reference key="destination" ref="1001"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="478968420"/>
+							<reference key="NSDestination" ref="1001"/>
+							<string key="NSLabel">selectedIndex: selectedLocationIndex</string>
+							<string key="NSBinding">selectedIndex</string>
+							<string key="NSKeyPath">selectedLocationIndex</string>
+							<reference key="NSPreviousConnector" ref="553532143"/>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">260</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -1270,7 +1339,7 @@
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">245</int>
+			<int key="maxID">260</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -1290,14 +1359,12 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>add:</string>
-							<string>cancel:</string>
-							<string>chooseNewCalendar:</string>
+							<string>done:</string>
 							<string>presentWindowToAddCalendar:</string>
+							<string>removeAccount:</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>id</string>
 							<string>id</string>
 							<string>id</string>
 							<string>id</string>
@@ -1307,27 +1374,22 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>add:</string>
-							<string>cancel:</string>
-							<string>chooseNewCalendar:</string>
+							<string>done:</string>
 							<string>presentWindowToAddCalendar:</string>
+							<string>removeAccount:</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<object class="IBActionInfo">
-								<string key="name">add:</string>
-								<string key="candidateClassName">id</string>
-							</object>
-							<object class="IBActionInfo">
-								<string key="name">cancel:</string>
-								<string key="candidateClassName">id</string>
-							</object>
-							<object class="IBActionInfo">
-								<string key="name">chooseNewCalendar:</string>
+								<string key="name">done:</string>
 								<string key="candidateClassName">id</string>
 							</object>
 							<object class="IBActionInfo">
 								<string key="name">presentWindowToAddCalendar:</string>
+								<string key="candidateClassName">id</string>
+							</object>
+							<object class="IBActionInfo">
+								<string key="name">removeAccount:</string>
 								<string key="candidateClassName">id</string>
 							</object>
 						</object>
@@ -1336,11 +1398,13 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>arrayController</string>
-							<string>popupButton</string>
+							<string>accountsArrayController</string>
+							<string>addButton</string>
+							<string>calendarsArrayController</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>id</string>
 							<string>id</string>
 							<string>id</string>
 						</object>
@@ -1349,17 +1413,22 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>arrayController</string>
-							<string>popupButton</string>
+							<string>accountsArrayController</string>
+							<string>addButton</string>
+							<string>calendarsArrayController</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<object class="IBToOneOutletInfo">
-								<string key="name">arrayController</string>
+								<string key="name">accountsArrayController</string>
 								<string key="candidateClassName">id</string>
 							</object>
 							<object class="IBToOneOutletInfo">
-								<string key="name">popupButton</string>
+								<string key="name">addButton</string>
+								<string key="candidateClassName">id</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">calendarsArrayController</string>
 								<string key="candidateClassName">id</string>
 							</object>
 						</object>
@@ -1378,12 +1447,10 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>add:</string>
 							<string>cancel:</string>
-							<string>chooseNewLocation:</string>
 							<string>presentWindowToAddLocation:</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>id</string>
 							<string>id</string>
 							<string>id</string>
 							<string>id</string>
@@ -1395,7 +1462,6 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>add:</string>
 							<string>cancel:</string>
-							<string>chooseNewLocation:</string>
 							<string>presentWindowToAddLocation:</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
@@ -1406,10 +1472,6 @@
 							</object>
 							<object class="IBActionInfo">
 								<string key="name">cancel:</string>
-								<string key="candidateClassName">id</string>
-							</object>
-							<object class="IBActionInfo">
-								<string key="name">chooseNewLocation:</string>
 								<string key="candidateClassName">id</string>
 							</object>
 							<object class="IBActionInfo">
@@ -1462,11 +1524,15 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>chooseNewCalendar:</string>
+							<string>chooseNewLocation:</string>
 							<string>playStopButtonClicked:</string>
 							<string>statusBarImageClicked:</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>id</string>
+							<string>id</string>
 							<string>id</string>
 							<string>id</string>
 						</object>
@@ -1475,11 +1541,21 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>chooseNewCalendar:</string>
+							<string>chooseNewLocation:</string>
 							<string>playStopButtonClicked:</string>
 							<string>statusBarImageClicked:</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<object class="IBActionInfo">
+								<string key="name">chooseNewCalendar:</string>
+								<string key="candidateClassName">id</string>
+							</object>
+							<object class="IBActionInfo">
+								<string key="name">chooseNewLocation:</string>
+								<string key="candidateClassName">id</string>
+							</object>
 							<object class="IBActionInfo">
 								<string key="name">playStopButtonClicked:</string>
 								<string key="candidateClassName">id</string>
@@ -1491,14 +1567,56 @@
 						</object>
 					</object>
 					<object class="NSMutableDictionary" key="outlets">
-						<string key="NS.key.0">playStopImageView</string>
-						<string key="NS.object.0">id</string>
+						<bool key="EncodedWithXMLCoder">YES</bool>
+						<object class="NSArray" key="dict.sortedKeys">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>calendarsController</string>
+							<string>calendarsPopup</string>
+							<string>locationsController</string>
+							<string>locationsPopup</string>
+							<string>playStopImageView</string>
+						</object>
+						<object class="NSMutableArray" key="dict.values">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>id</string>
+							<string>id</string>
+							<string>id</string>
+							<string>id</string>
+							<string>id</string>
+						</object>
 					</object>
 					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
-						<string key="NS.key.0">playStopImageView</string>
-						<object class="IBToOneOutletInfo" key="NS.object.0">
-							<string key="name">playStopImageView</string>
-							<string key="candidateClassName">id</string>
+						<bool key="EncodedWithXMLCoder">YES</bool>
+						<object class="NSArray" key="dict.sortedKeys">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>calendarsController</string>
+							<string>calendarsPopup</string>
+							<string>locationsController</string>
+							<string>locationsPopup</string>
+							<string>playStopImageView</string>
+						</object>
+						<object class="NSMutableArray" key="dict.values">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<object class="IBToOneOutletInfo">
+								<string key="name">calendarsController</string>
+								<string key="candidateClassName">id</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">calendarsPopup</string>
+								<string key="candidateClassName">id</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">locationsController</string>
+								<string key="candidateClassName">id</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">locationsPopup</string>
+								<string key="candidateClassName">id</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">playStopImageView</string>
+								<string key="candidateClassName">id</string>
+							</object>
 						</object>
 					</object>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">

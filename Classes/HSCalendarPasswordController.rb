@@ -14,14 +14,14 @@ require_framework 'Security'
 
 class HSCalendarPasswordController < OSX::NSObject
     
-    SERVICE = 'HoursCalendarPassword-'
+    SERVICE = 'HoursCalendarPassword'
     
-    def self.serviceNameForCalendar(calendar)
-        service = SERVICE + calendar
+    def self.serviceName
+        SERVICE
     end
     
-    def self.passwordForCalendar_username(calendar, username)
-        service = serviceNameForCalendar(calendar)
+    def self.passwordForUsername(username)
+        service = serviceName
 
         status, *password = SecKeychainFindGenericPassword(nil, service.length, service, username.length, username)
         
@@ -29,12 +29,10 @@ class HSCalendarPasswordController < OSX::NSObject
         password_length = password.shift
         password_data   = password.shift # OSX::ObjcPtr object
         password        = password_data.bytestr(password_length)
-        
-        keychain_item = password.shift
     end
 
-    def self.setPassword_forCalendar_username(password, calendar, username)
-        service = serviceNameForCalendar(calendar)
+    def self.setPassword_forUsername(password, username)
+        service = serviceName
 
         SecKeychainAddGenericPassword(nil, service.length, service, username.length, username, password.length, password.UTF8String, nil)
     end
