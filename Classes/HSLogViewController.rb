@@ -181,7 +181,7 @@ class HSLogViewController < OSX::NSWindowController
     end
     
     def durationTimerFired(timer)
-        endTime = Time.new.round_to_nearest(MINUTE_ROUND)
+        self.endTime = Time.new.round_to_nearest(MINUTE_ROUND)
         updateEvent
     end
     
