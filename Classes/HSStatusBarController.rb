@@ -7,10 +7,9 @@
 #
 
 require 'osx/cocoa'
-
 include OSX
 
-class HSStatusBarController < OSX::NSObject
+class HSStatusBarController < NSObject
 
     TIP_OVER = 4
     
@@ -30,7 +29,7 @@ class HSStatusBarController < OSX::NSObject
     end
     
     def statusBarImageClicked(sender)
-        if @logViewController.isWindowLoaded && @logViewController.window.isVisible
+        if @logViewController.isWindowLoaded and @logViewController.window.isVisible
             @statusItem.drawStatusBarBackgroundInRect_withHighlight(@statusBarIconView.frame, false)
             @logViewController.window.orderOut(sender)
             @statusBarIconView.needsDisplay = true

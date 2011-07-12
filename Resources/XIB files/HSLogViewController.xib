@@ -12,6 +12,7 @@
 		</object>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
+			<integer value="18"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -54,7 +55,7 @@
 				<string key="NSWindowContentMaxSize">{480, 480}</string>
 				<string key="NSWindowContentMinSize">{281, 240}</string>
 				<object class="NSView" key="NSWindowView" id="763376004">
-					<nil key="NSNextResponder"/>
+					<reference key="NSNextResponder"/>
 					<int key="NSvFlags">256</int>
 					<object class="NSMutableArray" key="NSSubviews">
 						<bool key="EncodedWithXMLCoder">YES</bool>
@@ -523,7 +524,7 @@
 								<object class="NSScroller" id="827571288">
 									<reference key="NSNextResponder" ref="665202225"/>
 									<int key="NSvFlags">256</int>
-									<string key="NSFrame">{{284, 1}, {15, 162}}</string>
+									<string key="NSFrame">{{284, 1}, {15, 160}}</string>
 									<reference key="NSSuperview" ref="665202225"/>
 									<reference key="NSTarget" ref="665202225"/>
 									<string key="NSAction">_doScroller:</string>
@@ -552,7 +553,8 @@
 							<reference key="NSContentView" ref="307711844"/>
 						</object>
 					</object>
-					<string key="NSFrame">{{7, 11}, {324, 296}}</string>
+					<string key="NSFrameSize">{324, 296}</string>
+					<reference key="NSSuperview"/>
 					<reference key="NSNextKeyView" ref="405850897"/>
 				</object>
 				<string key="NSScreenRect">{{0, 0}, {1280, 778}}</string>
@@ -889,6 +891,14 @@
 						<reference key="destination" ref="1001"/>
 					</object>
 					<int key="connectionID">261</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">logTextView</string>
+						<reference key="source" ref="1001"/>
+						<reference key="destination" ref="955259828"/>
+					</object>
+					<int key="connectionID">262</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -1282,9 +1292,9 @@
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{380, 496}, {480, 360}}</string>
+					<string>{{380, 460}, {324, 296}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{380, 496}, {480, 360}}</string>
+					<string>{{380, 460}, {324, 296}}</string>
 					<boolean value="NO"/>
 					<string>{{33, 99}, {480, 360}}</string>
 					<boolean value="YES"/>
@@ -1318,7 +1328,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">261</int>
+			<int key="maxID">262</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -1417,10 +1427,12 @@
 							<string>chooseNewCalendar:</string>
 							<string>chooseNewLocation:</string>
 							<string>playStopButtonClicked:</string>
+							<string>showWindow:</string>
 							<string>statusBarImageClicked:</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>id</string>
 							<string>id</string>
 							<string>id</string>
 							<string>id</string>
@@ -1435,10 +1447,12 @@
 							<string>calendarsPopup</string>
 							<string>locationsController</string>
 							<string>locationsPopup</string>
+							<string>logTextView</string>
 							<string>playStopImageView</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>id</string>
 							<string>id</string>
 							<string>id</string>
 							<string>id</string>

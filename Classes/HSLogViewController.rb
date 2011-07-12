@@ -36,6 +36,7 @@ class HSLogViewController < NSWindowController
     TIME_FORMAT           = '%H:%M'
     
     ib_outlets :playStopImageView, :calendarsController, :locationsController, :calendarsPopup, :locationsPopup
+    ib_outlets :logTextView
     ib_action  :statusBarImageClicked
     ib_action  :playStopButtonClicked
     ib_action  :chooseNewCalendar
@@ -221,6 +222,14 @@ class HSLogViewController < NSWindowController
                                       :subject       => self.subject,
                                       :location      => self.locationName,
                                       :text          => self.content })
+    end
+    
+    #
+    # NSWindowController overrides
+    #
+    def showWindow(sender)
+        super_showWindow(sender)
+        window.makeFirstResponder(@logTextView)
     end
     
     #
