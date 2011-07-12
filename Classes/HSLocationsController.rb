@@ -7,10 +7,9 @@
 #
 
 require 'osx/cocoa'
-
 include OSX
 
-class HSLocationsController < OSX::NSWindowController
+class HSLocationsController < NSWindowController
     
     ib_outlets :arrayController, :popupButton
     

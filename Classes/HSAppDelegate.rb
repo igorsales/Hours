@@ -7,21 +7,24 @@
 #
 
 require 'osx/cocoa'
-
 include OSX
 
-class HSAppDelegate < OSX::NSObject
+class HSAppDelegate < NSObject
     
-    def initialize
-        xformer1 = HSStringArrayForPopupMenuTransformer.new
-        xformer1.emptyString = '---'
-        xformer1.lastString = 'Edit calendars...'
+    def init
+        if super_init
+            xformer1 = HSStringArrayForPopupMenuTransformer.new
+            xformer1.emptyString = '---'
+            xformer1.lastString = 'Edit calendars...'
+            
+            xformer2 = HSStringArrayForPopupMenuTransformer.new
+            xformer2.emptyString = '---'
+            xformer2.lastString = 'Edit locations...'
+            
+            NSValueTransformer.setValueTransformer_forName(xformer1, "HSCalendarArrayStrings")
+            NSValueTransformer.setValueTransformer_forName(xformer2, "HSLocationArrayStrings")
+        end
         
-        xformer2 = HSStringArrayForPopupMenuTransformer.new
-        xformer2.emptyString = '---'
-        xformer2.lastString = 'Edit locations...'
-        
-        NSValueTransformer.setValueTransformer_forName(xformer1, "HSCalendarArrayStrings")
-        NSValueTransformer.setValueTransformer_forName(xformer2, "HSLocationArrayStrings")
+        self
     end
 end

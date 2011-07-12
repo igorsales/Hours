@@ -7,7 +7,6 @@
 #
 
 require 'osx/cocoa'
-
 include OSX
 
 class Time
@@ -28,7 +27,7 @@ class Time
     end
 end
 
-class HSLogViewController < OSX::NSWindowController
+class HSLogViewController < NSWindowController
     
     STOP_BUTTON_IMAGE     = 'stop_green_button.png'
     RECORD_BUTTON_IMAGE   = 'record_button.png'
@@ -231,5 +230,12 @@ class HSLogViewController < OSX::NSWindowController
         if !recording
             startRecording
         end
+    end
+    
+    #
+    # NSWindowDelegate protocol
+    #
+    def windowDidResignKey(notification)
+        window.orderOut(self)
     end
 end

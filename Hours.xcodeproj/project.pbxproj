@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		782A9B3013CC7A690021CF7F /* RubyCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78508F8F13C019D7009F2261 /* RubyCocoa.framework */; };
 		7847501C13C5620A0065D4F1 /* HSAppDelegate.rb in Resources */ = {isa = PBXBuildFile; fileRef = 7847501213C5620A0065D4F1 /* HSAppDelegate.rb */; };
 		7847501D13C5620A0065D4F1 /* HSBubbleView.rb in Resources */ = {isa = PBXBuildFile; fileRef = 7847501313C5620A0065D4F1 /* HSBubbleView.rb */; };
 		7847501E13C5620A0065D4F1 /* HSCalendarPasswordController.rb in Resources */ = {isa = PBXBuildFile; fileRef = 7847501413C5620A0065D4F1 /* HSCalendarPasswordController.rb */; };
@@ -31,7 +32,6 @@
 		7847508613C7FCF70065D4F1 /* record_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 7847508513C7FCF70065D4F1 /* record_button.png */; };
 		7847508813C7FF870065D4F1 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 7847508713C7FF870065D4F1 /* LICENSE */; };
 		78508F7313C019A1009F2261 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78508F7213C019A1009F2261 /* Cocoa.framework */; };
-		78508F9013C019D7009F2261 /* RubyCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78508F8F13C019D7009F2261 /* RubyCocoa.framework */; };
 		78508F9C13C2164F009F2261 /* ApplicationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78508F9B13C2164F009F2261 /* ApplicationServices.framework */; };
 /* End PBXBuildFile section */
 
@@ -76,8 +76,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				782A9B3013CC7A690021CF7F /* RubyCocoa.framework in Frameworks */,
 				78508F9C13C2164F009F2261 /* ApplicationServices.framework in Frameworks */,
-				78508F9013C019D7009F2261 /* RubyCocoa.framework in Frameworks */,
 				78508F7313C019A1009F2261 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -142,7 +142,7 @@
 				789F383813C5602E00234820 /* Classes */,
 				78508F7913C019A1009F2261 /* Supporting Files */,
 			);
-			path = Hours;
+			name = Hours;
 			sourceTree = "<group>";
 		};
 		78508F7913C019A1009F2261 /* Supporting Files */ = {
@@ -154,7 +154,7 @@
 				7847502713C5622D0065D4F1 /* main.m */,
 				7847502813C5622D0065D4F1 /* main.rb */,
 			);
-			name = "Supporting Files";
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		78508F9F13C24A77009F2261 /* Resources */ = {
@@ -163,8 +163,7 @@
 				7847502E13C5623F0065D4F1 /* Images */,
 				789F383713C5600700234820 /* XIB files */,
 			);
-			name = Resources;
-			path = Hours;
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		789F383713C5600700234820 /* XIB files */ = {
@@ -194,7 +193,7 @@
 				7847501A13C5620A0065D4F1 /* HSStringArrayForPopupMenuTransformer.h */,
 				7847501B13C5620A0065D4F1 /* HSStringArrayForPopupMenuTransformer.m */,
 			);
-			name = Classes;
+			path = Classes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -222,9 +221,11 @@
 /* Begin PBXProject section */
 		78508F6513C019A1009F2261 /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+				ORGANIZATIONNAME = igorsales.ca;
+			};
 			buildConfigurationList = 78508F6813C019A1009F2261 /* Build configuration list for PBXProject "Hours" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
@@ -297,7 +298,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = macosx;
+				SDKROOT = macosx10.5;
 			};
 			name = Debug;
 		};
@@ -311,7 +312,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
-				SDKROOT = macosx;
+				SDKROOT = macosx10.5;
 			};
 			name = Release;
 		};

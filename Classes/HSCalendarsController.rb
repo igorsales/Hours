@@ -7,10 +7,9 @@
 #
 
 require 'osx/cocoa'
-
 include OSX
 
-class HSCalendarsController < OSX::NSWindowController
+class HSCalendarsController < NSWindowController
 
     ib_outlets :accountsArrayController
     ib_outlets :calendarsArrayController
