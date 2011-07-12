@@ -7,10 +7,9 @@
 #
 
 require 'osx/cocoa'
+include OSX
 
-class HSBubbleView < OSX::NSView
-    
-    include OSX
+class HSBubbleView < NSView
     
     ARROW_HEIGHT = 20
     RADIUS       = 6

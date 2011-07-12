@@ -7,10 +7,9 @@
 #
 
 require 'osx/cocoa'
-
 include OSX
 
-class HSApplication < OSX::NSApplication
+class HSApplication < NSApplication
     def sendEvent(event)
         if event.oc_type == NSKeyDown and
            event.modifierFlags & NSDeviceIndependentModifierFlagsMask == NSCommandKeyMask
