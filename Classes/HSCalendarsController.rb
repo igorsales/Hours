@@ -140,5 +140,12 @@ class HSCalendarsController < NSWindowController
 
     def done(sender)
         window.orderOut(sender)
-    end    
+    end
+
+    #
+    # NSWindowDelegate protocol
+    #
+    def windowDidResignKey(notification)
+        window.orderOut(self)
+    end
 end

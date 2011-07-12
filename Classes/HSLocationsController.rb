@@ -66,4 +66,11 @@ class HSLocationsController < NSWindowController
         defaults.setObject_forKey(locations, :myLocations)
         defaults.synchronize
     end
+
+    #
+    # NSWindowDelegate protocol
+    #
+    def windowDidResignKey(notification)
+        window.orderOut(self)
+    end
 end
