@@ -11,7 +11,7 @@ include OSX
 
 class HSLocationsController < NSWindowController
     
-    ib_outlets :arrayController, :popupButton
+    ib_outlets :arrayController
     
     ib_action :add
     ib_action :cancel

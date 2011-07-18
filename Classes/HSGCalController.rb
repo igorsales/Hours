@@ -71,8 +71,6 @@ class HSGCalAgent
     def newEventWithData(data)
         event = Event.new(service, {:calendar => self.calendar})
         updateEvent(event, data) if event
-        
-        event
     end
 end
 

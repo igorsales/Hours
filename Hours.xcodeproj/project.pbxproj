@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		782A9B3013CC7A690021CF7F /* RubyCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78508F8F13C019D7009F2261 /* RubyCocoa.framework */; };
+		782A9BC413CFA49E0021CF7F /* HSRequestQueue.rb in Resources */ = {isa = PBXBuildFile; fileRef = 782A9BC313CFA49E0021CF7F /* HSRequestQueue.rb */; };
 		7847501C13C5620A0065D4F1 /* HSAppDelegate.rb in Resources */ = {isa = PBXBuildFile; fileRef = 7847501213C5620A0065D4F1 /* HSAppDelegate.rb */; };
 		7847501D13C5620A0065D4F1 /* HSBubbleView.rb in Resources */ = {isa = PBXBuildFile; fileRef = 7847501313C5620A0065D4F1 /* HSBubbleView.rb */; };
 		7847501E13C5620A0065D4F1 /* HSCalendarPasswordController.rb in Resources */ = {isa = PBXBuildFile; fileRef = 7847501413C5620A0065D4F1 /* HSCalendarPasswordController.rb */; };
@@ -36,6 +37,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		782A9BC313CFA49E0021CF7F /* HSRequestQueue.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = HSRequestQueue.rb; sourceTree = "<group>"; };
 		7847501213C5620A0065D4F1 /* HSAppDelegate.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; name = HSAppDelegate.rb; path = Classes/HSAppDelegate.rb; sourceTree = SOURCE_ROOT; };
 		7847501313C5620A0065D4F1 /* HSBubbleView.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; name = HSBubbleView.rb; path = Classes/HSBubbleView.rb; sourceTree = SOURCE_ROOT; };
 		7847501413C5620A0065D4F1 /* HSCalendarPasswordController.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; name = HSCalendarPasswordController.rb; path = Classes/HSCalendarPasswordController.rb; sourceTree = SOURCE_ROOT; };
@@ -189,6 +191,7 @@
 				7847501613C5620A0065D4F1 /* HSLocationsController.rb */,
 				7847501713C5620A0065D4F1 /* HSLogViewController.rb */,
 				7847501813C5620A0065D4F1 /* HSPopupWindow.rb */,
+				782A9BC313CFA49E0021CF7F /* HSRequestQueue.rb */,
 				7847501913C5620A0065D4F1 /* HSStatusBarController.rb */,
 				7847501A13C5620A0065D4F1 /* HSStringArrayForPopupMenuTransformer.h */,
 				7847501B13C5620A0065D4F1 /* HSStringArrayForPopupMenuTransformer.m */,
@@ -266,6 +269,7 @@
 				7847506713C6541C0065D4F1 /* HSApplication.rb in Resources */,
 				7847508613C7FCF70065D4F1 /* record_button.png in Resources */,
 				7847508813C7FF870065D4F1 /* LICENSE in Resources */,
+				782A9BC413CFA49E0021CF7F /* HSRequestQueue.rb in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -56,6 +56,7 @@ class HSLogViewController < NSWindowController
     kvc_depends_on([:startTime, :endTime], :durationHHMM)
     
     def startTimeHHMM
+        NSLog("##1 #{startTime}") if startTime
         startTime.strftime(TIME_FORMAT) if startTime
     end
     
@@ -74,6 +75,10 @@ class HSLogViewController < NSWindowController
         hours     = duration.modulo(60)
 
         ('%02d' % hours) + ':' + ('%02d' % minutes)
+    end
+    
+    def requestQueue
+        @requestQueue ||= HSRequestQueue.new
     end
     
     def selectedCalendarIndex=(index)
@@ -178,6 +183,9 @@ class HSLogViewController < NSWindowController
         @durationTimer = nil
         
         updateEvent
+        
+        self.startTime = nil
+        self.endTime   = nil
     end
     
     def durationTimerFired(timer)
@@ -213,15 +221,16 @@ class HSLogViewController < NSWindowController
     
     def updateEvent
 
-        HSGCalController.updateGCal(
-                                    { :calendar_name => self.calendarName,
-                                      :username      => self.calendarUsername,
-                                      :password      => self.calendarPassword,
-                                      :start_time    => self.startTime,
-                                      :end_time      => self.endTime,
-                                      :subject       => self.subject,
-                                      :location      => self.locationName,
-                                      :text          => self.content })
+        data = { :calendar_name => self.calendarName,
+                 :username      => self.calendarUsername,
+                 :password      => self.calendarPassword,
+                 :start_time    => self.startTime,
+                 :end_time      => self.endTime,
+                 :subject       => self.subject,
+                 :location      => self.locationName,
+                 :text          => self.content }
+        
+        requestQueue.queueCalendarUpdate(data)
     end
     
     #
