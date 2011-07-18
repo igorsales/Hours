@@ -32,7 +32,7 @@ class HSLogViewController < NSWindowController
     STOP_BUTTON_IMAGE     = 'stop_green_button.png'
     RECORD_BUTTON_IMAGE   = 'record_button.png'
     MINUTE_ROUND          = 15
-    UPDATE_TIMER_INTERVAL = 5*60
+    UPDATE_TIMER_INTERVAL = 60 #5*60
     TIME_FORMAT           = '%H:%M'
     
     ib_outlets :playStopImageView, :calendarsController, :locationsController, :calendarsPopup, :locationsPopup
@@ -49,6 +49,9 @@ class HSLogViewController < NSWindowController
     kvc_accessor :selectedCalendarIndex
     kvc_accessor :selectedLocationIndex
 
+    attr_accessor :needsUpdate
+    alias :needsUpdate? :needsUpdate
+
     alias :recording? :recording
     
     kvc_depends_on([:startTime],           :startTimeHHMM)
@@ -56,7 +59,6 @@ class HSLogViewController < NSWindowController
     kvc_depends_on([:startTime, :endTime], :durationHHMM)
     
     def startTimeHHMM
-        NSLog("##1 #{startTime}") if startTime
         startTime.strftime(TIME_FORMAT) if startTime
     end
     
@@ -189,8 +191,15 @@ class HSLogViewController < NSWindowController
     end
     
     def durationTimerFired(timer)
-        self.endTime = Time.new.round_to_nearest(MINUTE_ROUND)
-        updateEvent
+        newEndTime   = Time.new.round_to_nearest(MINUTE_ROUND)
+        if self.endTime < newEndTime
+            self.needsUpdate  = true
+            self.endTime = newEndTime
+        end
+
+        updateEvent if needsUpdate?
+        
+        self.needsUpdate = false
     end
     
     def subject
@@ -224,13 +233,15 @@ class HSLogViewController < NSWindowController
         data = { :calendar_name => self.calendarName,
                  :username      => self.calendarUsername,
                  :password      => self.calendarPassword,
-                 :start_time    => self.startTime,
-                 :end_time      => self.endTime,
+                 :start_time    => Time.at( self.startTime.to_f ), # Ensure we make a copy
+                 :end_time      => Time.at( self.endTime.to_f ),   # So we don't mess with any of these objects again.
                  :subject       => self.subject,
                  :location      => self.locationName,
                  :text          => self.content }
         
         requestQueue.queueCalendarUpdate(data)
+        
+        self.needsUpdate = false
     end
     
     #
@@ -248,6 +259,8 @@ class HSLogViewController < NSWindowController
         if !recording
             startRecording
         end
+        
+        self.needsUpdate = true
     end
     
     #

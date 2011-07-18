@@ -26,7 +26,7 @@ class HSRequestQueue < NSObject
     end
     
     def keyFromData(data)
-        Digest::SHA1.hexdigest("#{data[:calendar_name]}-#{data[:start_time]}-#{data[:location]}")
+        Digest::SHA1.hexdigest("#{data[:calendar_name]}-#{data[:start_time].utc.xmlschema}-#{data[:location]}")
     end
     
     def serializeQueueToUserDefaults
@@ -36,8 +36,14 @@ class HSRequestQueue < NSObject
     end
     
     def updateTimerFired(timer)
-        queue.each do |key, value|
-            updateEventWithData(value)
+        queue.each do |key, data|
+            username = data[:username]
+            password = HSCalendarPasswordController.passwordForUsername(username) if username
+            if username and password
+                eventData = data.dup
+                eventData[:password] = password
+                updateEventWithData(eventData)
+            end
         end
         
         serializeQueueToUserDefaults
@@ -50,7 +56,9 @@ class HSRequestQueue < NSObject
     end
 
     def queueCalendarUpdate(data)
-        queue[keyFromData(data)] = data
+        storedData = data.dup.delete_if { |key,value| key == :password }
+        
+        queue[keyFromData(data)] = storedData
         serializeQueueToUserDefaults
 
         updateEventWithData(data) # Force an update immediately

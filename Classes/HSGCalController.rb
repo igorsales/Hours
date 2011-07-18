@@ -65,6 +65,7 @@ class HSGCalAgent
         event.where      = data[:location]   if data[:location]
         event.content    = data[:text]       if data[:text]
         event.status     = :confirmed
+        event.attendees  = []
         event.save
     end
     
@@ -77,10 +78,10 @@ end
 class HSGCalController < NSObject
 
     def self.mainThreadCallback(data)
-        calendars = data[:result]
+        result    = data[:result]
         block     = data[:block]
     
-        block.call(calendars)
+        block.call(result)
     end
     objc_class_method :mainThreadCallback, %w{id id}
 
@@ -112,16 +113,31 @@ class HSGCalController < NSObject
             
             if agent.calendar.nil?
                 NSLog("Cannot retrieve calendar #{agent.calendar_name}")
+                
+                self.performSelectorOnMainThread_withObject_waitUntilDone('mainThreadCallback:', 
+                { :result => false,
+                  :block  => delegate_block }, false) if block_given?
+
                 return
             end
-            
+
             events = agent.eventsBetweenStartTime_endTime(data[:start_time], data[:start_time] + 60)
 
+            result = false
             if events.nil? or events.length == 0 or events[0].start_time != data[:start_time]
-                agent.newEventWithData(data) or NSLog('Cannot create event')
+                result = agent.newEventWithData(data)
+                
+                NSLog('Cannot create event') if !result
             else
-                agent.updateEvent(events[0], data) or NSLog('Cannot update event')
+                result = agent.updateEvent(events[0], data)
+                
+                NSLog('Cannot update event') if !result
             end
+            
+            self.performSelectorOnMainThread_withObject_waitUntilDone('mainThreadCallback:', 
+                { :result => result,
+                  :block  => delegate_block }, false) if block_given?
+
         end
     end
 end
