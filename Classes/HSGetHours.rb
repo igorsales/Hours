@@ -46,6 +46,9 @@ class HSGetHours
       opts.on("-c", "--calendar CALENDAR", "Calendar name") do |v|
         options[:calendar] = v
       end
+      opts.on("-x", "--comments", "Print comments instead of hours") do |v|
+        options[:comments] = true
+      end
     end.parse!
 
     @start_time_str = ARGV[0]
@@ -54,6 +57,7 @@ class HSGetHours
     @username       = options[:username]
     @password       = options[:password]
     @calendar_name  = options[:calendar]
+    @comments_only  = options[:comments]
     
     raise "Please specify the username and calendar" if @username.nil? or @calendar_name.nil?
   end
@@ -130,6 +134,7 @@ class HSGetHours
       end_date  = Time.at(e.end_time)
       if prev_date.day != this_date.day
         puts "#{total_day} hours\n\n#{this_date.strftime(DAY_FORMAT)}"
+        puts ('=' * 80) if @comments_only
         total_perday += total_day
         total_day = 0
       end
@@ -138,15 +143,20 @@ class HSGetHours
       total_elapsed += elapsed
       total_day     += elapsed
   
-      puts "#{this_date.strftime(TIME_FORMAT)} to #{end_date.strftime(TIME_FORMAT)} = #{elapsed}h \t(#{formatted_hours(elapsed)})" 
+      if !@comments_only
+        puts "#{this_date.strftime(TIME_FORMAT)} to #{end_date.strftime(TIME_FORMAT)} = #{elapsed}h \t(#{formatted_hours(elapsed)})" 
+      else
+        puts "#{e.content}"
+      end
   
       prev_date = Time.at(e.start_time)
     end
+    puts ('=' * 80) if @comments_only
     puts "#{prev_date.strftime(DAY_FORMAT)}: #{total_day} hours\n\n"
     total_perday += total_day
     total_day = 0
   
-    puts "Total hours: #{total_elapsed}  \t(#{formatted_hours(total_elapsed)}) cross_check=(#{total_perday})"
+    puts "Total hours: #{total_elapsed}  \t(#{formatted_hours(total_elapsed)})" # cross_check=(#{total_perday})"
   end
 
   def run
