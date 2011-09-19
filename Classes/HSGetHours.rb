@@ -34,7 +34,7 @@ class HSGetHours
   
   def parse_cmd_line_args
     options = {}
-    OptionParser.new do |opts|
+    opts = OptionParser.new do |opts|
       opts.banner = "Usage: get_hours.rb [options]"
   
       opts.on("-u", "--username USERNAME", "Username:") do |v|
@@ -49,7 +49,13 @@ class HSGetHours
       opts.on("-x", "--comments", "Print comments instead of hours") do |v|
         options[:comments] = true
       end
-    end.parse!
+
+      opts.on("-h", "--help", "Display this cruft") do  |v|
+        puts opts
+        exit
+      end
+    end
+    opts.parse!
 
     @start_time_str = ARGV[0]
     @end_time_str   = ARGV[1]
@@ -59,7 +65,10 @@ class HSGetHours
     @calendar_name  = options[:calendar]
     @comments_only  = options[:comments]
     
-    raise "Please specify the username and calendar" if @username.nil? or @calendar_name.nil?
+    if @username.nil? or @calendar_name.nil?
+      puts opts.help
+      exit
+    end
   end
 
   def handle_password
