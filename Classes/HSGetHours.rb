@@ -67,6 +67,7 @@ class HSGetHours
     
     if @username.nil? or @calendar_name.nil?
       puts opts.help
+      puts "\nPlease specify the calendar and the username"
       exit
     end
   end
@@ -172,7 +173,11 @@ class HSGetHours
     parse_cmd_line_args
     handle_password
     events = fetch_events(@start_time_str, @end_time_str)
-    print_summary(events) if events
+    if events and events.size > 0
+      print_summary(events)
+    else
+      puts "No events retrieved. Did you forget to specify the dates?"
+    end
   end
 end
 
