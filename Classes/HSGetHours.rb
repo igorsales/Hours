@@ -90,7 +90,13 @@ class HSGetHours
       tmp_time = Time.parse(start_time_str)
       # Is it the first of the month?
       if tmp_time.day == 1 and tmp_time.hour == 0 and tmp_time.min == 0
-        tmp_time = Time.local(tmp_time.year, tmp_time.month+1, tmp_time.day, 0, 0, 0)
+        year = tmp_time.year
+        month = tmp_time.month+1
+        if month == 13
+          year = year + 1
+          month = 1
+        end
+        tmp_time = Time.local(year, month, tmp_time.day, 0, 0, 0)
         end_time_str = tmp_time.to_s
       end
     end
