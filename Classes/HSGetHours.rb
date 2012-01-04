@@ -144,7 +144,7 @@ class HSGetHours
     total_day     = 0
     total_perday  = 0
     prev_date = Time.at(events[0].start_time)
-    puts "#{prev_date}"
+    puts "#{prev_date.strftime(DAY_FORMAT)}"
     events.each do |e|
       this_date = Time.at(e.start_time)
       end_date  = Time.at(e.end_time)
