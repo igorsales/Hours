@@ -8,15 +8,15 @@
 
 class Time
     def round(minutes)
-        Time.at( (self.to_f / (minutes*60)).round * (minutes*60) )
+        Time.at( (to_f / (minutes*60)).round * (minutes*60) )
     end
 
     def floor(minutes)
-        Time.at( (self.to_f / (minutes*60)).floor * (minutes*60) )
+        Time.at( (to_f / (minutes*60)).floor * (minutes*60) )
     end
     
     def round_to_nearest(minutes)
-        if (self.min.to_f / minutes).modulo(1) < 0.5
+        if (min.to_f / minutes).modulo(1) < 0.5
             floor(minutes)
         else
             round(minutes)
@@ -34,10 +34,6 @@ class HSLogViewController < NSWindowController
     
     attr_accessor :playStopImageView, :calendarsController, :locationsController, :calendarsPopup, :locationsPopup
     attr_accessor :logTextView
-    #ib_action  :statusBarImageClicked
-    #ib_action  :playStopButtonClicked
-    #ib_action  :chooseNewCalendar
-    #ib_action  :chooseNewLocation
     
     attr_accessor :log
     attr_accessor :recording
@@ -45,16 +41,23 @@ class HSLogViewController < NSWindowController
     attr_accessor :endTime
     attr_accessor :selectedCalendarIndex
     attr_accessor :selectedLocationIndex
+    attr_accessor :startTimeHHMM
+    attr_accessor :endTimeHHMM
+    attr_accessor :durationHHMM
 
     attr_accessor :needsUpdate
     alias :needsUpdate? :needsUpdate
 
     alias :recording? :recording
     
-    #kvc_depends_on([:startTime],           :startTimeHHMM)
-    #kvc_depends_on([:endTime],             :endTimeHHMM)
-    #kvc_depends_on([:startTime, :endTime], :durationHHMM)
+    def self.keyPathsForValuesAffectingValueForKey(key)
+        keyPaths = super(key)
     
+        return keyPaths.setByAddingObjectsFromArray(['startTime']) if key == "startTimeHHMM"
+        return keyPaths.setByAddingObjectsFromArray(['endTime']) if key == "endTimeHHMM"
+        return keyPaths.setByAddingObjectsFromArray(['startTime', 'endTime']) if key == "durationHHMM"
+    end
+
     def startTimeHHMM
         startTime.strftime(TIME_FORMAT) if startTime
     end
@@ -75,7 +78,7 @@ class HSLogViewController < NSWindowController
 
         ('%02d' % hours) + ':' + ('%02d' % minutes)
     end
-    
+
     def requestQueue
         @requestQueue ||= HSRequestQueue.new
     end
@@ -102,7 +105,7 @@ class HSLogViewController < NSWindowController
 
     def init
         if initWithWindowNibName('HSLogViewController')
-            @recording = false
+            self.recording = false
             @selectedCalendarIndex = NSNumber.numberWithInteger(0)
             @selectedLocationIndex = NSNumber.numberWithInteger(0)
         end
@@ -133,12 +136,12 @@ class HSLogViewController < NSWindowController
         calendars = @calendarsController.allCalendars
         if selectedCalendarIndex && calendars && (calendars.count == 0 || selectedCalendarIndex.integerValue == calendars.count) # Prompt user for new calendar
             @calendarsController.presentWindowToAddCalendar(sender)
-            self.selectedCalendarIndex = @oldSelectedCalendarIndex
+            @selectedCalendarIndex = @oldSelectedCalendarIndex
             window.orderOut(sender)
         elsif @selectedCalendarIndex.integerValue < calendars.count
             # User changed the calendar, so wipe out the previous data
             # As long as it was not to edit calendars
-            self.log = nil
+            @log = nil
         end
     end
 
@@ -146,7 +149,7 @@ class HSLogViewController < NSWindowController
         locations = @locationsController.allLocations
         if selectedLocationIndex && locations && (locations.count == 0 || selectedLocationIndex.integerValue == locations.count) # Prompt user for new location
             @locationsController.presentWindowToAddLocation(sender)
-            self.selectedLocationIndex = @oldSelectedLocationIndex
+            @selectedLocationIndex = @oldSelectedLocationIndex
             window.orderOut(sender)
         end
     end
@@ -160,7 +163,7 @@ class HSLogViewController < NSWindowController
     end
 
     def startRecording
-        self.recording = true
+        @recording = true
         @playStopImageView.image = NSImage.imageNamed(STOP_BUTTON_IMAGE)
         @calendarsPopup.enabled = false
         @locationsPopup.enabled = false
@@ -176,7 +179,7 @@ class HSLogViewController < NSWindowController
         @calendarsPopup.enabled = true
         @locationsPopup.enabled = true
         @playStopImageView.image = NSImage.imageNamed(RECORD_BUTTON_IMAGE)
-        self.recording = false
+        @recording = false
         
         @durationTimer.invalidate
         @durationTimer = nil
@@ -189,7 +192,7 @@ class HSLogViewController < NSWindowController
     
     def durationTimerFired(timer)
         newEndTime   = Time.new.round_to_nearest(MINUTE_ROUND)
-        if self.endTime < newEndTime
+        if endTime < newEndTime
             self.needsUpdate  = true
             self.endTime = newEndTime
         end
@@ -221,20 +224,20 @@ class HSLogViewController < NSWindowController
     end
     
     def content
-        content = self.log.string if self.log
+        content = log.string if log
         content ||= ''
     end
     
     def updateEvent
 
-        data = { :calendar_name => self.calendarName,
-                 :username      => self.calendarUsername,
-                 :password      => self.calendarPassword,
-                 :start_time    => Time.at( self.startTime.to_f ), # Ensure we make a copy
-                 :end_time      => Time.at( self.endTime.to_f ),   # So we don't mess with any of these objects again.
-                 :subject       => self.subject,
-                 :location      => self.locationName,
-                 :text          => self.content }
+        data = { :calendar_name => calendarName,
+                 :username      => calendarUsername,
+                 :password      => calendarPassword,
+                 :start_time    => Time.at( startTime.to_f ), # Ensure we make a copy
+                 :end_time      => Time.at( endTime.to_f ),   # So we don't mess with any of these objects again.
+                 :subject       => subject,
+                 :location      => locationName,
+                 :text          => content }
         
         requestQueue.queueCalendarUpdate(data)
         

@@ -6,6 +6,8 @@
 #  Copyright (c) 2011 Igor Sales. All rights reserved.
 #
 
+ENV['GEM_PATH']=File.expand_path(File.join(File.dirname(__FILE__),'gems'))
+
 require 'rubygems'
 require 'gcal4ruby'
 

@@ -31,8 +31,13 @@
                                         &passwordLength, (void**)&passwordData, nil);
     
     NSString* password = nil;
-    if (passwordData) {
-        password = [NSString stringWithCString:passwordData encoding:NSUTF8StringEncoding];
+    if (passwordData && passwordLength) {
+        // It's possible the buffer is not null terminated, so copy it, use it, and throw it away.
+        char *buffer = malloc(passwordLength+1);
+        memcpy(buffer, passwordData, passwordLength);
+        buffer[passwordLength] = 0;
+        password = [NSString stringWithCString:buffer encoding:NSUTF8StringEncoding];
+        free(buffer);
         
         SecKeychainItemFreeContent(nil, (void*)passwordData);
     }

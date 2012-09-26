@@ -22,6 +22,9 @@ class HSCalendarPasswordControllerVoid
         service = serviceName
 
         status, *password = SecKeychainFindGenericPassword(nil, service.length, service, username.length, username)
+
+        puts status
+        puts password
         
         # Password-related data
         password_length = password.shift
