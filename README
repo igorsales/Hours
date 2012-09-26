@@ -13,7 +13,7 @@ again to close it.
 
 http://cookingandcoding.com/gcal4ruby
 
-% gem install gcal4ruby
+% sudo macgem install gcal4ruby
 
 
 

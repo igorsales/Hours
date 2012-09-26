@@ -6,13 +6,10 @@
 #  Copyright (c) 2011 Igor Sales. All rights reserved.
 #
 
-require 'osx/cocoa'
-include OSX
-
 class HSAppDelegate < NSObject
     
     def init
-        if super_init
+        if super
             xformer1 = HSStringArrayForPopupMenuTransformer.new
             xformer1.emptyString = '---'
             xformer1.lastString = 'Edit calendars...'
@@ -21,8 +18,8 @@ class HSAppDelegate < NSObject
             xformer2.emptyString = '---'
             xformer2.lastString = 'Edit locations...'
             
-            NSValueTransformer.setValueTransformer_forName(xformer1, "HSCalendarArrayStrings")
-            NSValueTransformer.setValueTransformer_forName(xformer2, "HSLocationArrayStrings")
+            NSValueTransformer.setValueTransformer(xformer1, forName:"HSCalendarArrayStrings")
+            NSValueTransformer.setValueTransformer(xformer2, forName:"HSLocationArrayStrings")
         end
         
         self

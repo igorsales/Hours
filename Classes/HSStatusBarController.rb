@@ -6,15 +6,12 @@
 #  Copyright (c) 2011 Igor Sales. All rights reserved.
 #
 
-require 'osx/cocoa'
-include OSX
-
 class HSStatusBarController < NSObject
 
     TIP_OVER = 4
     
-    ib_outlet     :statusBarIconView
-    ib_outlet     :logViewController
+    attr_accessor :statusBarIconView
+    attr_accessor :logViewController
     
     attr_accessor :log
     attr_accessor :recording
@@ -24,13 +21,13 @@ class HSStatusBarController < NSObject
     def awakeFromNib
         @statusBar = NSStatusBar.systemStatusBar
 
-        @statusItem = @statusBar.statusItemWithLength(NSSquareStatusItemLength).retain
+        @statusItem = @statusBar.statusItemWithLength(NSSquareStatusItemLength)
         @statusItem.setView(@statusBarIconView)
     end
     
     def statusBarImageClicked(sender)
         if @logViewController.isWindowLoaded and @logViewController.window.isVisible
-            @statusItem.drawStatusBarBackgroundInRect_withHighlight(@statusBarIconView.frame, false)
+            @statusItem.drawStatusBarBackgroundInRect(@statusBarIconView.frame, withHighlight:false)
             @logViewController.window.orderOut(sender)
             @statusBarIconView.needsDisplay = true
         else
@@ -45,7 +42,7 @@ class HSStatusBarController < NSObject
             @logViewController.window.setFrameOrigin(frame.origin)
             @logViewController.showWindow(sender)
             
-            @statusItem.drawStatusBarBackgroundInRect_withHighlight(@statusBarIconView.frame, true)
+            @statusItem.drawStatusBarBackgroundInRect(@statusBarIconView.frame, withHighlight:true)
             @statusBarIconView.needsDisplay = true
         end
     end    

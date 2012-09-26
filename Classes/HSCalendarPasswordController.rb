@@ -8,11 +8,9 @@
 
 # As found on http://bjeanes.com/2008/04/10/rubycocoa-and-keychain-access
 
-require 'osx/cocoa'
-include OSX
-require_framework 'Security'
+framework 'Security'
 
-class HSCalendarPasswordController < OSX::NSObject
+class HSCalendarPasswordControllerVoid
     
     SERVICE = 'HoursCalendarPassword'
     
@@ -31,9 +29,10 @@ class HSCalendarPasswordController < OSX::NSObject
         password        = password_data.bytestr(password_length)
     end
 
-    def self.setPassword_forUsername(password, username)
+    def self.setPassword(password, forUsername: username)
         service = serviceName
 
-        SecKeychainAddGenericPassword(nil, service.length, service, username.length, username, password.length, password.UTF8String, nil)
+        SecKeychainAddGenericPassword(nil, service.length, service, username.length, username, password.length, 
+                                      password, nil)
     end
 end

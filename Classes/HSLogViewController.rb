@@ -6,9 +6,6 @@
 #  Copyright (c) 2011 Igor Sales. All rights reserved.
 #
 
-require 'osx/cocoa'
-include OSX
-
 class Time
     def round(minutes)
         Time.at( (self.to_f / (minutes*60)).round * (minutes*60) )
@@ -35,28 +32,28 @@ class HSLogViewController < NSWindowController
     UPDATE_TIMER_INTERVAL = 60 #5*60
     TIME_FORMAT           = '%H:%M'
     
-    ib_outlets :playStopImageView, :calendarsController, :locationsController, :calendarsPopup, :locationsPopup
-    ib_outlets :logTextView
-    ib_action  :statusBarImageClicked
-    ib_action  :playStopButtonClicked
-    ib_action  :chooseNewCalendar
-    ib_action  :chooseNewLocation
+    attr_accessor :playStopImageView, :calendarsController, :locationsController, :calendarsPopup, :locationsPopup
+    attr_accessor :logTextView
+    #ib_action  :statusBarImageClicked
+    #ib_action  :playStopButtonClicked
+    #ib_action  :chooseNewCalendar
+    #ib_action  :chooseNewLocation
     
-    kvc_accessor :log
-    kvc_accessor :recording
-    kvc_accessor :startTime
-    kvc_accessor :endTime
-    kvc_accessor :selectedCalendarIndex
-    kvc_accessor :selectedLocationIndex
+    attr_accessor :log
+    attr_accessor :recording
+    attr_accessor :startTime
+    attr_accessor :endTime
+    attr_accessor :selectedCalendarIndex
+    attr_accessor :selectedLocationIndex
 
     attr_accessor :needsUpdate
     alias :needsUpdate? :needsUpdate
 
     alias :recording? :recording
     
-    kvc_depends_on([:startTime],           :startTimeHHMM)
-    kvc_depends_on([:endTime],             :endTimeHHMM)
-    kvc_depends_on([:startTime, :endTime], :durationHHMM)
+    #kvc_depends_on([:startTime],           :startTimeHHMM)
+    #kvc_depends_on([:endTime],             :endTimeHHMM)
+    #kvc_depends_on([:startTime, :endTime], :durationHHMM)
     
     def startTimeHHMM
         startTime.strftime(TIME_FORMAT) if startTime
@@ -172,7 +169,7 @@ class HSLogViewController < NSWindowController
         self.endTime   = Time.at(startTime+MINUTE_ROUND*60).round(MINUTE_ROUND)
         
         # Start update timer
-        @durationTimer = NSTimer.scheduledTimerWithTimeInterval_target_selector_userInfo_repeats(UPDATE_TIMER_INTERVAL,self,:durationTimerFired,nil,true)
+        @durationTimer = NSTimer.scheduledTimerWithTimeInterval(UPDATE_TIMER_INTERVAL, target: self, selector: "durationTimerFired:", userInfo: nil, repeats:true)
     end
     
     def stopRecording
@@ -248,7 +245,7 @@ class HSLogViewController < NSWindowController
     # NSWindowController overrides
     #
     def showWindow(sender)
-        super_showWindow(sender)
+        super(sender)
         window.makeFirstResponder(@logTextView)
     end
     

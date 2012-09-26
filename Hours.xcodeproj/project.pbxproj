@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		782A9B3013CC7A690021CF7F /* RubyCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78508F8F13C019D7009F2261 /* RubyCocoa.framework */; };
 		782A9BC413CFA49E0021CF7F /* HSRequestQueue.rb in Resources */ = {isa = PBXBuildFile; fileRef = 782A9BC313CFA49E0021CF7F /* HSRequestQueue.rb */; };
 		7847501C13C5620A0065D4F1 /* HSAppDelegate.rb in Resources */ = {isa = PBXBuildFile; fileRef = 7847501213C5620A0065D4F1 /* HSAppDelegate.rb */; };
 		7847501D13C5620A0065D4F1 /* HSBubbleView.rb in Resources */ = {isa = PBXBuildFile; fileRef = 7847501313C5620A0065D4F1 /* HSBubbleView.rb */; };
@@ -32,8 +31,11 @@
 		7847506713C6541C0065D4F1 /* HSApplication.rb in Resources */ = {isa = PBXBuildFile; fileRef = 7847506613C6541C0065D4F1 /* HSApplication.rb */; };
 		7847508613C7FCF70065D4F1 /* record_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 7847508513C7FCF70065D4F1 /* record_button.png */; };
 		7847508813C7FF870065D4F1 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 7847508713C7FF870065D4F1 /* LICENSE */; };
-		78508F7313C019A1009F2261 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78508F7213C019A1009F2261 /* Cocoa.framework */; };
-		78508F9C13C2164F009F2261 /* ApplicationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78508F9B13C2164F009F2261 /* ApplicationServices.framework */; };
+		A9FAB71E1510D58200E1666F /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9FAB71D1510D58200E1666F /* Cocoa.framework */; };
+		A9FAB7201510D58B00E1666F /* ApplicationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9FAB71F1510D58B00E1666F /* ApplicationServices.framework */; };
+		A9FAB7221510D59300E1666F /* MacRuby.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9FAB7211510D59300E1666F /* MacRuby.framework */; };
+		A9FAB7271511984800E1666F /* HSCalendarPasswordController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9FAB7261511984700E1666F /* HSCalendarPasswordController.m */; };
+		A9FAB72915119B2000E1666F /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9FAB72815119B2000E1666F /* Security.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,12 +67,12 @@
 		7847508513C7FCF70065D4F1 /* record_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = record_button.png; path = Resources/Images/record_button.png; sourceTree = SOURCE_ROOT; };
 		7847508713C7FF870065D4F1 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = SOURCE_ROOT; };
 		78508F6E13C019A1009F2261 /* Hours.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hours.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		78508F7213C019A1009F2261 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
-		78508F7513C019A1009F2261 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
-		78508F7613C019A1009F2261 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		78508F7713C019A1009F2261 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		78508F8F13C019D7009F2261 /* RubyCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RubyCocoa.framework; path = System/Library/Frameworks/RubyCocoa.framework; sourceTree = SDKROOT; };
-		78508F9B13C2164F009F2261 /* ApplicationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApplicationServices.framework; path = System/Library/Frameworks/ApplicationServices.framework; sourceTree = SDKROOT; };
+		A9FAB71D1510D58200E1666F /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = SDKs/MacOSX10.6.sdk/System/Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
+		A9FAB71F1510D58B00E1666F /* ApplicationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApplicationServices.framework; path = SDKs/MacOSX10.6.sdk/System/Library/Frameworks/ApplicationServices.framework; sourceTree = DEVELOPER_DIR; };
+		A9FAB7211510D59300E1666F /* MacRuby.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MacRuby.framework; path = SDKs/MacOSX10.6.sdk/Library/Frameworks/MacRuby.framework; sourceTree = DEVELOPER_DIR; };
+		A9FAB7251511984700E1666F /* HSCalendarPasswordController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HSCalendarPasswordController.h; sourceTree = "<group>"; };
+		A9FAB7261511984700E1666F /* HSCalendarPasswordController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HSCalendarPasswordController.m; sourceTree = "<group>"; };
+		A9FAB72815119B2000E1666F /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = SDKs/MacOSX10.6.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,9 +80,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				782A9B3013CC7A690021CF7F /* RubyCocoa.framework in Frameworks */,
-				78508F9C13C2164F009F2261 /* ApplicationServices.framework in Frameworks */,
-				78508F7313C019A1009F2261 /* Cocoa.framework in Frameworks */,
+				A9FAB72915119B2000E1666F /* Security.framework in Frameworks */,
+				A9FAB7221510D59300E1666F /* MacRuby.framework in Frameworks */,
+				A9FAB7201510D58B00E1666F /* ApplicationServices.framework in Frameworks */,
+				A9FAB71E1510D58200E1666F /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -100,6 +103,7 @@
 		78508F6313C019A0009F2261 = {
 			isa = PBXGroup;
 			children = (
+				A9FAB72815119B2000E1666F /* Security.framework */,
 				7847508713C7FF870065D4F1 /* LICENSE */,
 				7847502913C5622D0065D4F1 /* README */,
 				78508F7813C019A1009F2261 /* Hours */,
@@ -120,22 +124,11 @@
 		78508F7113C019A1009F2261 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				78508F9B13C2164F009F2261 /* ApplicationServices.framework */,
-				78508F8F13C019D7009F2261 /* RubyCocoa.framework */,
-				78508F7213C019A1009F2261 /* Cocoa.framework */,
-				78508F7413C019A1009F2261 /* Other Frameworks */,
+				A9FAB7211510D59300E1666F /* MacRuby.framework */,
+				A9FAB71F1510D58B00E1666F /* ApplicationServices.framework */,
+				A9FAB71D1510D58200E1666F /* Cocoa.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		78508F7413C019A1009F2261 /* Other Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				78508F7513C019A1009F2261 /* AppKit.framework */,
-				78508F7613C019A1009F2261 /* CoreData.framework */,
-				78508F7713C019A1009F2261 /* Foundation.framework */,
-			);
-			name = "Other Frameworks";
 			sourceTree = "<group>";
 		};
 		78508F7813C019A1009F2261 /* Hours */ = {
@@ -195,6 +188,8 @@
 				7847501913C5620A0065D4F1 /* HSStatusBarController.rb */,
 				7847501A13C5620A0065D4F1 /* HSStringArrayForPopupMenuTransformer.h */,
 				7847501B13C5620A0065D4F1 /* HSStringArrayForPopupMenuTransformer.m */,
+				A9FAB7251511984700E1666F /* HSCalendarPasswordController.h */,
+				A9FAB7261511984700E1666F /* HSCalendarPasswordController.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -229,6 +224,7 @@
 			};
 			buildConfigurationList = 78508F6813C019A1009F2261 /* Build configuration list for PBXProject "Hours" */;
 			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
@@ -282,6 +278,7 @@
 			files = (
 				7847502413C5620A0065D4F1 /* HSStringArrayForPopupMenuTransformer.m in Sources */,
 				7847502B13C5622D0065D4F1 /* main.m in Sources */,
+				A9FAB7271511984800E1666F /* HSCalendarPasswordController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -327,11 +324,13 @@
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_ENABLE_OBJC_GC = supported;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Supporting Files/Hours-Prefix.pch";
 				INFOPLIST_FILE = "Supporting Files/Hours-Info.plist";
-				MACOSX_DEPLOYMENT_TARGET = 10.5;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx10.6;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -343,11 +342,13 @@
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_ENABLE_OBJC_GC = supported;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Supporting Files/Hours-Prefix.pch";
 				INFOPLIST_FILE = "Supporting Files/Hours-Info.plist";
-				MACOSX_DEPLOYMENT_TARGET = 10.5;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx10.6;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

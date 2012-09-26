@@ -6,12 +6,9 @@
 #  Copyright (c) 2011 Igor Sales. All rights reserved.
 #
 
-require 'osx/cocoa'
-include OSX
-
 class HSApplication < NSApplication
     def sendEvent(event)
-        if event.oc_type == NSKeyDown and
+        if event.class == NSKeyDown and
            event.modifierFlags & NSDeviceIndependentModifierFlagsMask == NSCommandKeyMask
             
             return if event.charactersIgnoringModifiers.isEqualToString:"x" and sendAction_to_from('cut:',       nil, self)
@@ -21,6 +18,6 @@ class HSApplication < NSApplication
             return if event.charactersIgnoringModifiers.isEqualToString:"a" and sendAction_to_from('selectAll:', nil, self)
         end
             
-        super_sendEvent(event)
+        super(event)
     end
 end

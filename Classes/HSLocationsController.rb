@@ -6,19 +6,16 @@
 #  Copyright (c) 2011 Igor Sales. All rights reserved.
 #
 
-require 'osx/cocoa'
-include OSX
-
 class HSLocationsController < NSWindowController
     
-    ib_outlets :arrayController
+    attr_accessor :arrayController
     
-    ib_action :add
-    ib_action :cancel
+    #ib_action :add
+    #ib_action :cancel
     
-    ib_action :presentWindowToAddLocation
+    #ib_action :presentWindowToAddLocation
     
-    kvc_accessor :newLocationName
+    attr_accessor :newLocationName
 
     def init
         initWithWindowNibName('HSLocationsController')
@@ -63,7 +60,7 @@ class HSLocationsController < NSWindowController
         end
         
         defaults = NSUserDefaults.standardUserDefaults
-        defaults.setObject_forKey(locations, :myLocations)
+        defaults.setObject(locations, forKey: :myLocations)
         defaults.synchronize
     end
 

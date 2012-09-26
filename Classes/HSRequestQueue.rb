@@ -6,15 +6,13 @@
 #  Copyright (c) 2011 Igor Sales. All rights reserved.
 #
 
-require 'osx/cocoa'
 require 'digest/sha1'
-include OSX
 
 class HSRequestQueue < NSObject
     UPDATE_QUEUE_TIMEOUT = 5*60
 
     def init
-        if super_init
+        if super
             @updateTimer = NSTimer.scheduledTimerWithTimeInterval_target_selector_userInfo_repeats_(UPDATE_QUEUE_TIMEOUT, self, :updateTimerFired, nil, true)
         end
         
@@ -31,7 +29,7 @@ class HSRequestQueue < NSObject
     
     def serializeQueueToUserDefaults
         defaults = NSUserDefaults.standardUserDefaults
-        defaults.setValue_forKey(queue, :myUpdateQueue)
+        defaults.setValue(queue, forKey: :myUpdateQueue)
         defaults.synchronize
     end
     

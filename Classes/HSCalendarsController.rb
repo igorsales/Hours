@@ -6,24 +6,16 @@
 #  Copyright (c) 2011 Igor Sales. All rights reserved.
 #
 
-require 'osx/cocoa'
-include OSX
-
 class HSCalendarsController < NSWindowController
 
-    ib_outlets :accountsArrayController
-    ib_outlets :calendarsArrayController
-    ib_outlets :addButton
-    
-    ib_action :removeAccount
-    ib_action :done
-    
-    ib_action :presentWindowToAddCalendar
-    
-    kvc_accessor :username
-    kvc_accessor :password
-    kvc_accessor :errorMessage
-    kvc_accessor :busy
+    attr_accessor :accountsArrayController
+    attr_accessor :calendarsArrayController
+    attr_accessor :addButton
+
+    attr_accessor :username
+    attr_accessor :password
+    attr_accessor :errorMessage
+    attr_accessor :busy
     alias :busy? :busy
     
     def init
@@ -76,9 +68,9 @@ class HSCalendarsController < NSWindowController
         ok
     end
     
-    def setUserDefaultsValue_forKey(value,key)        
+    def setUserDefaultsValue(value, forKey: key)        
         defaults = NSUserDefaults.standardUserDefaults
-        defaults.setObject_forKey(value, key)
+        defaults.setObject(value, forKey:key)
         defaults.synchronize
     end
     
@@ -90,13 +82,13 @@ class HSCalendarsController < NSWindowController
     def addCalendars(cals)
         cals = allCalendarsByRemovingCalendars(cals) + cals
         
-        setUserDefaultsValue_forKey(cals, :myCalendars)
+        setUserDefaultsValue(cals, forKey: :myCalendars)
     end
 
     def removeCalendars(cals)
         cals = allCalendarsByRemovingCalendars(cals)
         
-        setUserDefaultsValue_forKey(cals, :myCalendars)
+        setUserDefaultsValue(cals, forKey: :myCalendars)
     end
     
     def addAccount(sender)
@@ -117,10 +109,10 @@ class HSCalendarsController < NSWindowController
                 accts = accts + [ newEntry ]
             end
             
-            setUserDefaultsValue_forKey(accts, :myAccounts)
+            setUserDefaultsValue(accts, forKey: :myAccounts)
             addCalendars(cals)
             
-            HSCalendarPasswordController.setPassword_forUsername(password, username)
+            HSCalendarPasswordController.setPassword(password, forUsername: username)
             self.busy = NSNumber.numberWithBool(false)
         end
     end
@@ -133,7 +125,7 @@ class HSCalendarsController < NSWindowController
         @accountsArrayController.remove(sender)
         
         accts = @accountsArrayController.arrangedObjects
-        setUserDefaultsValue_forKey(accts, :myAccounts)
+        setUserDefaultsValue(accts, forKey: :myAccounts)
         
         removeCalendars(calsToRemove)
     end

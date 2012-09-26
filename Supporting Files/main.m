@@ -11,5 +11,9 @@
 
 int main(int argc, const char *argv[])
 {
-    return RBApplicationMain("main.rb", argc, argv);
+    // RubyCocoa
+    //return RBApplicationMain("main.rb", argc, argv);
+    
+    // MacRuby
+    return macruby_main("main.rb", argc, argv);
 }

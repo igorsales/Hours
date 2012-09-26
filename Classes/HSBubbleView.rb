@@ -6,9 +6,6 @@
 #  Copyright (c) 2011 Igor Sales. All rights reserved.
 #
 
-require 'osx/cocoa'
-include OSX
-
 class HSBubbleView < NSView
     
     ARROW_HEIGHT = 20

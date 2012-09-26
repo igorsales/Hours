@@ -1,16 +1,13 @@
-require 'osx/cocoa'
+framework 'Cocoa'
 
-def main_init
-    path = OSX::NSBundle.mainBundle.resourcePath.fileSystemRepresentation
-    rbfiles = Dir.entries(path).select {|x|
-        /\.rb\z/ =~ x}
-    rbfiles -= [ File.basename(__FILE__) ]
-    rbfiles.each do |path|
-        require( File.basename(path) )
+# Loading all the Ruby project files.
+main = File.basename(__FILE__, File.extname(__FILE__))
+dir_path = NSBundle.mainBundle.resourcePath.fileSystemRepresentation
+Dir.glob(File.join(dir_path, '*.{rb,rbo}')).map { |x| File.basename(x, File.extname(x)) }.uniq.each do |path|
+    if path != main
+        require(path)
     end
 end
 
-if $0 == __FILE__ then
-    main_init
-    OSX.NSApplicationMain(0, nil)
-end
+# Starting the Cocoa main loop.
+NSApplicationMain(0, nil)

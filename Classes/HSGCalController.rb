@@ -6,11 +6,9 @@
 #  Copyright (c) 2011 Igor Sales. All rights reserved.
 #
 
-require 'osx/cocoa'
 require 'rubygems'
 require 'gcal4ruby'
 
-include OSX
 include GCal4Ruby
 
 class HSGCalAgent
@@ -43,7 +41,7 @@ class HSGCalAgent
         cals.select { |c| c.editable }
     end
     
-    def eventsBetweenStartTime_endTime(start,endt)
+    def eventsBetweenStartTime(start, endTime: endt)
         start_time = start.utc.xmlschema
         end_time   = endt.utc.xmlschema
         
@@ -75,7 +73,7 @@ class HSGCalAgent
     end
 end
 
-class HSGCalController < NSObject
+class HSGCalController
 
     def self.mainThreadCallback(data)
         result    = data[:result]
@@ -83,7 +81,7 @@ class HSGCalController < NSObject
     
         block.call(result)
     end
-    objc_class_method :mainThreadCallback, %w{id id}
+    #objc_class_method :mainThreadCallback, %w{id id}
 
     def self.calendars(data, &delegate_block)
         agent = HSGCalAgent.new
@@ -92,9 +90,9 @@ class HSGCalController < NSObject
         
         Thread.start do 
             calendars = agent.calendars
-            self.performSelectorOnMainThread_withObject_waitUntilDone('mainThreadCallback:', 
-                { :result => calendars,
-                  :block  => delegate_block }, false) if block_given?
+            self.performSelectorOnMainThread('mainThreadCallback:', 
+                                             withObject: { :result => calendars,
+                                             :block  => delegate_block }, waitUntilDone: false) if block_given?
         end
     end
 
@@ -114,14 +112,14 @@ class HSGCalController < NSObject
             if agent.calendar.nil?
                 NSLog("Cannot retrieve calendar #{agent.calendar_name}")
                 
-                self.performSelectorOnMainThread_withObject_waitUntilDone('mainThreadCallback:', 
-                { :result => false,
-                  :block  => delegate_block }, false) if block_given?
+                self.performSelectorOnMainThread('mainThreadCallback:', 
+                                                 _withObject: { :result => false,
+                                                 :block  => delegate_block }, waitUntilDone: false) if block_given?
 
                 return
             end
 
-            events = agent.eventsBetweenStartTime_endTime(data[:start_time], data[:start_time] + 60)
+            events = agent.eventsBetweenStartTime(data[:start_time], endTime: data[:start_time] + 60)
 
             result = false
             if events.nil? or events.length == 0 or events[0].start_time != data[:start_time]
