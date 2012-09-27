@@ -16,6 +16,9 @@ http://cookingandcoding.com/gcal4ruby
 % mkdir gems
 % sudo gem install --install-dir gems --no-ri --no-rdoc gcal4ruby
 
+2) Install MacRuby
+
+http://macruby.org
 
 
 === NOTICES ===
