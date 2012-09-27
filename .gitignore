@@ -4,4 +4,5 @@ Hours.xcodeproj/xcuserdata/
 **/.DS_Store
 Hours.xcodeproj/igor.*
 build/
+gems/
 

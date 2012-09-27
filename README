@@ -1,6 +1,6 @@
 === INTRODUCTION ===
 
-This is a simple status bar widget written (mostly) in RubyCocoa to help keep track of time. 
+This is a simple status bar widget written (mostly) in Ruby and Cocoa with MacRuby to help keep track of time.
 It integrates with Google Calendar using the GCal4Ruby gem.
 
 Once it's running, click the icon on the status bar to open the widget. Click the status bar icon
@@ -8,59 +8,14 @@ again to close it.
 
 === INSTALLATION ===
 
-
-1) Install GCal4Ruby gem
+1) Install GCal4Ruby gem locally
 
 http://cookingandcoding.com/gcal4ruby
 
-% sudo macgem install gcal4ruby
+% cd <path/to/Hours>
+% mkdir gems
+% sudo gem install --install-dir gems --no-ri --no-rdoc gcal4ruby
 
-
-
-2) Create Security framework BridgeSupport
-
-source: http://bjeanes.com/2008/04/10/rubycocoa-and-keychain-access
-
-
-If you run irb and obtain the result below
-
-% irb
->> require 'osx/cocoa'
-=> true
->> OSX.require_framework 'Security'
-=> true
->> defined? OSX::SecKeychainAddGenericPassword
-=> nil
->> defined? OSX::SecKeychainAddGenericPassword()
-=> nil
->> exit
-
-Then you need to generate the Security framework scripting bridge support for RubyCocoa
-
-2.1) Generate the bridgesupport file
-
-% gen_bridge_metadata -f Security -o Security.bridgesupport
-
-
-2.2) Create the default folder where the scripting bridge support file will be found
-
-% mkdir -p ~/Library/BridgeSupport
-
-
-2.3) Move the file into its place
-
-% mv Security.bridgesupport ~/Library/BridgeSupport/
-
-
-2.4) Test again to ensure it's now properly picked up
-
-% irb
->> require 'osx/cocoa'
-=> true
->> OSX.require_framework 'Security'
-=> true
->> defined? OSX::SecKeychainAddGenericPassword()
-=> "method"
 
 
 === NOTICES ===
