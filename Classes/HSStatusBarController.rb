@@ -18,11 +18,18 @@ class HSStatusBarController < NSObject
     attr_accessor :startTime
     attr_accessor :endTime
     
+    attr_accessor :active
+    attr_accessor :active_image_view
+    attr_accessor :inactive_image_view
+    
     def awakeFromNib
         @statusBar = NSStatusBar.systemStatusBar
 
         @statusItem = @statusBar.statusItemWithLength(NSSquareStatusItemLength)
         @statusItem.setView(@statusBarIconView)
+        @statusItem.setHighlightMode(true)
+        
+        self.active = false
     end
     
     def statusBarImageClicked(sender)
@@ -45,5 +52,12 @@ class HSStatusBarController < NSObject
             @statusItem.drawStatusBarBackgroundInRect(@statusBarIconView.frame, withHighlight:true)
             @statusBarIconView.needsDisplay = true
         end
-    end    
+    end
+    
+    def active=(is_active)
+        @active = is_active
+        
+        active_image_view.hidden = !is_active
+        inactive_image_view.hidden = is_active
+    end
 end

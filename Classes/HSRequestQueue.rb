@@ -54,7 +54,8 @@ class HSRequestQueue < NSObject
     end
 
     def queueCalendarUpdate(data)
-        storedData = data.dup.delete_if { |key,value| key == :password }
+        storedData = data.dup
+        storedData.delete(:password)
         
         queue[keyFromData(data)] = storedData
         serializeQueueToUserDefaults

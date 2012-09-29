@@ -7,6 +7,8 @@
 #
 
 class HSApplication < NSApplication
+    attr_accessor :statusBarController
+
     def sendEvent(event)
         if event.class == NSKeyDown and
            event.modifierFlags & NSDeviceIndependentModifierFlagsMask == NSCommandKeyMask

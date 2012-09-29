@@ -83,7 +83,6 @@ class HSGCalController
     
         block.call(result)
     end
-    #objc_class_method :mainThreadCallback, %w{id id}
 
     def self.calendars(data, &delegate_block)
         agent = HSGCalAgent.new
@@ -115,8 +114,8 @@ class HSGCalController
                 NSLog("Cannot retrieve calendar #{agent.calendar_name}")
                 
                 self.performSelectorOnMainThread('mainThreadCallback:', 
-                                                 _withObject: { :result => false,
-                                                 :block  => delegate_block }, waitUntilDone: false) if block_given?
+                                                 withObject: { :result => false, :block  => delegate_block },
+                                                 waitUntilDone: false) if block_given?
 
                 return
             end
@@ -134,10 +133,9 @@ class HSGCalController
                 NSLog('Cannot update event') if !result
             end
             
-            self.performSelectorOnMainThread_withObject_waitUntilDone('mainThreadCallback:', 
-                { :result => result,
-                  :block  => delegate_block }, false) if block_given?
-
+            self.performSelectorOnMainThread('mainThreadCallback:',
+                                             withObject: { :result => result, :block  => delegate_block },
+                                             waitUntilDone: false) if block_given?
         end
     end
 end

@@ -10,7 +10,7 @@
 
 framework 'Security'
 
-class HSCalendarPasswordControllerVoid
+class HSCalendarPasswordController
     
     SERVICE = 'HoursCalendarPassword'
     

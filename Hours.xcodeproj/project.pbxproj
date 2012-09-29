@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		782A9BC413CFA49E0021CF7F /* HSRequestQueue.rb in Resources */ = {isa = PBXBuildFile; fileRef = 782A9BC313CFA49E0021CF7F /* HSRequestQueue.rb */; };
 		7847501C13C5620A0065D4F1 /* HSAppDelegate.rb in Resources */ = {isa = PBXBuildFile; fileRef = 7847501213C5620A0065D4F1 /* HSAppDelegate.rb */; };
-		7847501E13C5620A0065D4F1 /* HSCalendarPasswordControllerVoid.rb in Resources */ = {isa = PBXBuildFile; fileRef = 7847501413C5620A0065D4F1 /* HSCalendarPasswordControllerVoid.rb */; };
 		7847501F13C5620A0065D4F1 /* HSCalendarsController.rb in Resources */ = {isa = PBXBuildFile; fileRef = 7847501513C5620A0065D4F1 /* HSCalendarsController.rb */; };
 		7847502013C5620A0065D4F1 /* HSLocationsController.rb in Resources */ = {isa = PBXBuildFile; fileRef = 7847501613C5620A0065D4F1 /* HSLocationsController.rb */; };
 		7847502113C5620A0065D4F1 /* HSLogViewController.rb in Resources */ = {isa = PBXBuildFile; fileRef = 7847501713C5620A0065D4F1 /* HSLogViewController.rb */; };
@@ -36,6 +35,7 @@
 		78BF426716137CE400B84E29 /* MacRuby.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78BF426616137CE400B84E29 /* MacRuby.framework */; };
 		78BF426C1613864400B84E29 /* gems in Resources */ = {isa = PBXBuildFile; fileRef = 78BF426B1613864400B84E29 /* gems */; };
 		78BF426F16138B0900B84E29 /* HSBubbleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 78BF426E16138B0900B84E29 /* HSBubbleView.m */; };
+		78BF42771615D40A00B84E29 /* StatusBarIconActive.png in Resources */ = {isa = PBXBuildFile; fileRef = 78BF42761615D40A00B84E29 /* StatusBarIconActive.png */; };
 		A9FAB7271511984800E1666F /* HSCalendarPasswordController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9FAB7261511984700E1666F /* HSCalendarPasswordController.m */; };
 /* End PBXBuildFile section */
 
@@ -43,7 +43,7 @@
 		782A9BC313CFA49E0021CF7F /* HSRequestQueue.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = HSRequestQueue.rb; sourceTree = "<group>"; };
 		7847501213C5620A0065D4F1 /* HSAppDelegate.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; name = HSAppDelegate.rb; path = Classes/HSAppDelegate.rb; sourceTree = SOURCE_ROOT; };
 		7847501313C5620A0065D4F1 /* HSBubbleView.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; name = HSBubbleView.rb; path = Classes/HSBubbleView.rb; sourceTree = SOURCE_ROOT; };
-		7847501413C5620A0065D4F1 /* HSCalendarPasswordControllerVoid.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; name = HSCalendarPasswordControllerVoid.rb; path = Classes/HSCalendarPasswordControllerVoid.rb; sourceTree = SOURCE_ROOT; };
+		7847501413C5620A0065D4F1 /* HSCalendarPasswordController.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; name = HSCalendarPasswordController.rb; path = Classes/HSCalendarPasswordController.rb; sourceTree = SOURCE_ROOT; };
 		7847501513C5620A0065D4F1 /* HSCalendarsController.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; name = HSCalendarsController.rb; path = Classes/HSCalendarsController.rb; sourceTree = SOURCE_ROOT; };
 		7847501613C5620A0065D4F1 /* HSLocationsController.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; name = HSLocationsController.rb; path = Classes/HSLocationsController.rb; sourceTree = SOURCE_ROOT; };
 		7847501713C5620A0065D4F1 /* HSLogViewController.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; name = HSLogViewController.rb; path = Classes/HSLogViewController.rb; sourceTree = SOURCE_ROOT; };
@@ -75,6 +75,7 @@
 		78BF426B1613864400B84E29 /* gems */ = {isa = PBXFileReference; lastKnownFileType = folder; path = gems; sourceTree = SOURCE_ROOT; };
 		78BF426D16138B0900B84E29 /* HSBubbleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HSBubbleView.h; sourceTree = "<group>"; };
 		78BF426E16138B0900B84E29 /* HSBubbleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HSBubbleView.m; sourceTree = "<group>"; };
+		78BF42761615D40A00B84E29 /* StatusBarIconActive.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = StatusBarIconActive.png; path = Images/StatusBarIconActive.png; sourceTree = "<group>"; };
 		A9FAB7251511984700E1666F /* HSCalendarPasswordController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HSCalendarPasswordController.h; sourceTree = "<group>"; };
 		A9FAB7261511984700E1666F /* HSCalendarPasswordController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HSCalendarPasswordController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -97,6 +98,7 @@
 		7847502E13C5623F0065D4F1 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				78BF42761615D40A00B84E29 /* StatusBarIconActive.png */,
 				7847508513C7FCF70065D4F1 /* record_button.png */,
 				7847503013C562560065D4F1 /* StatusBarIcon.png */,
 				7847503213C562560065D4F1 /* stop_green_button.png */,
@@ -186,7 +188,7 @@
 				78BF426D16138B0900B84E29 /* HSBubbleView.h */,
 				78BF426E16138B0900B84E29 /* HSBubbleView.m */,
 				7847501513C5620A0065D4F1 /* HSCalendarsController.rb */,
-				7847501413C5620A0065D4F1 /* HSCalendarPasswordControllerVoid.rb */,
+				7847501413C5620A0065D4F1 /* HSCalendarPasswordController.rb */,
 				7847505613C564870065D4F1 /* HSGCalController.rb */,
 				7847501613C5620A0065D4F1 /* HSLocationsController.rb */,
 				7847501713C5620A0065D4F1 /* HSLogViewController.rb */,
@@ -253,7 +255,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				7847501C13C5620A0065D4F1 /* HSAppDelegate.rb in Resources */,
-				7847501E13C5620A0065D4F1 /* HSCalendarPasswordControllerVoid.rb in Resources */,
 				7847501F13C5620A0065D4F1 /* HSCalendarsController.rb in Resources */,
 				7847502013C5620A0065D4F1 /* HSLocationsController.rb in Resources */,
 				7847502113C5620A0065D4F1 /* HSLogViewController.rb in Resources */,
@@ -274,6 +275,7 @@
 				7847508813C7FF870065D4F1 /* LICENSE in Resources */,
 				782A9BC413CFA49E0021CF7F /* HSRequestQueue.rb in Resources */,
 				78BF426C1613864400B84E29 /* gems in Resources */,
+				78BF42771615D40A00B84E29 /* StatusBarIconActive.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

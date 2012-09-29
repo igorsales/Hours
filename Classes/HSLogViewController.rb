@@ -33,6 +33,7 @@ class HSLogViewController < NSWindowController
     TIME_FORMAT           = '%H:%M'
     
     attr_accessor :playStopImageView, :calendarsController, :locationsController, :calendarsPopup, :locationsPopup
+    attr_accessor :statusBarController
     attr_accessor :logTextView
     
     attr_accessor :log
@@ -156,8 +157,10 @@ class HSLogViewController < NSWindowController
 
     def playStopButtonClicked(sender)
         if recording?
+            statusBarController.active = false
             stopRecording
         else
+            statusBarController.active = true
             startRecording
         end
     end

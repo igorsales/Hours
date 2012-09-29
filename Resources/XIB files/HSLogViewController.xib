@@ -456,10 +456,10 @@
 													<string>public.url</string>
 												</object>
 											</object>
-											<string key="NSFrameSize">{298, 162}</string>
+											<string key="NSFrameSize">{283, 162}</string>
 											<reference key="NSSuperview" ref="307711844"/>
 											<reference key="NSWindow"/>
-											<reference key="NSNextKeyView" ref="827571288"/>
+											<reference key="NSNextKeyView" ref="262003555"/>
 											<object class="NSTextContainer" key="NSTextContainer" id="506902777">
 												<object class="NSLayoutManager" key="NSLayoutManager">
 													<object class="NSTextStorage" key="NSTextStorage">
@@ -476,7 +476,7 @@
 													<nil key="NSDelegate"/>
 												</object>
 												<reference key="NSTextView" ref="955259828"/>
-												<double key="NSWidth">298</double>
+												<double key="NSWidth">283</double>
 												<int key="NSTCFlags">1</int>
 											</object>
 											<object class="NSTextViewSharedData" key="NSSharedData">
@@ -541,7 +541,7 @@
 											<nil key="NSDelegate"/>
 										</object>
 									</object>
-									<string key="NSFrame">{{1, 1}, {298, 162}}</string>
+									<string key="NSFrame">{{1, 1}, {283, 162}}</string>
 									<reference key="NSSuperview" ref="665202225"/>
 									<reference key="NSWindow"/>
 									<reference key="NSNextKeyView" ref="955259828"/>
@@ -711,10 +711,9 @@ wGw</bytes>
 								<object class="NSScroller" id="827571288">
 									<reference key="NSNextResponder" ref="665202225"/>
 									<int key="NSvFlags">256</int>
-									<string key="NSFrame">{{283, 1}, {16, 162}}</string>
+									<string key="NSFrame">{{284, 1}, {15, 162}}</string>
 									<reference key="NSSuperview" ref="665202225"/>
 									<reference key="NSWindow"/>
-									<reference key="NSNextKeyView"/>
 									<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
 									<reference key="NSTarget" ref="665202225"/>
 									<string key="NSAction">_doScroller:</string>
@@ -739,7 +738,7 @@ wGw</bytes>
 							<string key="NSFrame">{{12, 12}, {300, 164}}</string>
 							<reference key="NSSuperview" ref="763376004"/>
 							<reference key="NSWindow"/>
-							<reference key="NSNextKeyView" ref="262003555"/>
+							<reference key="NSNextKeyView" ref="307711844"/>
 							<int key="NSsFlags">133138</int>
 							<reference key="NSVScroller" ref="827571288"/>
 							<reference key="NSHScroller" ref="262003555"/>
@@ -1762,7 +1761,9 @@ wGw</bytes>
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>calendarsController</string>
 							<string>calendarsPopup</string>
+							<string>durationHHMM</string>
 							<string>endTime</string>
+							<string>endTimeHHMM</string>
 							<string>locationsController</string>
 							<string>locationsPopup</string>
 							<string>log</string>
@@ -1773,9 +1774,13 @@ wGw</bytes>
 							<string>selectedCalendarIndex</string>
 							<string>selectedLocationIndex</string>
 							<string>startTime</string>
+							<string>startTimeHHMM</string>
 						</object>
 						<object class="NSArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>id</string>
+							<string>id</string>
+							<string>id</string>
 							<string>id</string>
 							<string>id</string>
 							<string>id</string>
@@ -1797,7 +1802,9 @@ wGw</bytes>
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>calendarsController</string>
 							<string>calendarsPopup</string>
+							<string>durationHHMM</string>
 							<string>endTime</string>
+							<string>endTimeHHMM</string>
 							<string>locationsController</string>
 							<string>locationsPopup</string>
 							<string>log</string>
@@ -1808,6 +1815,7 @@ wGw</bytes>
 							<string>selectedCalendarIndex</string>
 							<string>selectedLocationIndex</string>
 							<string>startTime</string>
+							<string>startTimeHHMM</string>
 						</object>
 						<object class="NSArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
@@ -1820,7 +1828,15 @@ wGw</bytes>
 								<string key="candidateClassName">id</string>
 							</object>
 							<object class="IBToOneOutletInfo">
+								<string key="name">durationHHMM</string>
+								<string key="candidateClassName">id</string>
+							</object>
+							<object class="IBToOneOutletInfo">
 								<string key="name">endTime</string>
+								<string key="candidateClassName">id</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">endTimeHHMM</string>
 								<string key="candidateClassName">id</string>
 							</object>
 							<object class="IBToOneOutletInfo">
@@ -1861,6 +1877,10 @@ wGw</bytes>
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">startTime</string>
+								<string key="candidateClassName">id</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">startTimeHHMM</string>
 								<string key="candidateClassName">id</string>
 							</object>
 						</object>
