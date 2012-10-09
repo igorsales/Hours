@@ -1,4 +1,5 @@
 #!/usr/bin/ruby
+
 ####################################
 #
 #  HSGetHours.rb
@@ -10,7 +11,9 @@
 require 'rubygems'
 require 'gcal4ruby'
 require 'optparse'
-require 'HSCalendarPasswordController'
+
+
+#TODO: Fix it: require 'HSCalendarPasswordController'
 
 include GCal4Ruby
 
@@ -75,13 +78,23 @@ class HSGetHours
   def handle_password
     # If password wasn't specified, try to get it from KeyChain
     if @password.nil?
-      @password = HSCalendarPasswordController.passwordForUsername(@username)
+      #@password = HSCalendarPasswordController.passwordForUsername(@username)
+      @password = begin
+        print "Enter password: "
+        STDOUT.flush
+        system 'stty -echo'
+        pass = STDIN.readline
+        system 'stty echo'
+        pass.gsub(/[\r\n]+/,'')
+      rescue => e
+        raise "Cannot read password from STDIN: "+e.inspect
+      end
       if @password.nil? # Still nil? We couldn't get it, so error out
         raise "Cannot find password for username #{@username}"
       end
     else
       # User specified a password, so store it
-      HSCalendarPasswordController.setPassword_forUsername(@password, @username)
+      #HSCalendarPasswordController.setPassword_forUsername(@password, @username)
     end
   end
 
@@ -125,7 +138,7 @@ class HSGetHours
     
     if calendars and calendars.length > 0
       calendar = calendars[0]
-    
+
       events = Event.find(service, "",
           { 'start-min' => start_time,
             'start-max' => end_time, 
