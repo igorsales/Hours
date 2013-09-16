@@ -80,8 +80,7 @@ class HSGetHours
     if @password.nil?
       #@password = HSCalendarPasswordController.passwordForUsername(@username)
       @password = begin
-        print "Enter password: "
-        STDOUT.flush
+        $stderr.puts "Enter password: "
         system 'stty -echo'
         pass = STDIN.readline
         system 'stty echo'
