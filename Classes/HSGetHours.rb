@@ -129,6 +129,7 @@ class HSGetHours
     end_time   = end_time.utc.xmlschema
     
     service = Service.new
+    service.debug = true if ['1',1,true,'true'].include? ENV['DEBUG']
     service.authenticate(@username, @password)
     
     calendars = Calendar.find(service, 
@@ -136,15 +137,22 @@ class HSGetHours
                              {:scope => :first})
     
     if calendars and calendars.length > 0
-      calendar = calendars[0]
+      calendar = calendars.first
+
+      # Remove up to the last slash (/)
+      # There was a change in the API not yet supported by the gcal4ruby/gcal4data
+      # So, I need to obtain the calendar id from here, and unscape it so it will
+      # work properly
+      calendar_id = calendar.id.gsub(/^.+\//,'')
+      calendar_id = URI.unescape(calendar_id)
 
       events = Event.find(service, "",
           { 'start-min' => start_time,
             'start-max' => end_time, 
             'max-results' => 10000,
-            :calendar => calendar.id }
+            :calendar => calendar_id }
       )
-    
+
       events.sort! { |a,b| a.start_time <=> b.start_time } 
       return events
     end
