@@ -9,14 +9,12 @@
 #
 
 require 'rubygems'
-require 'gcal4ruby'
+require 'digest/sha1'
 require 'optparse'
-
-
-#TODO: Fix it: require 'HSCalendarPasswordController'
-
-include GCal4Ruby
-
+require 'google/api_client'
+require 'google/api_client/auth/file_storage'
+require 'google/api_client/auth/installed_app'
+require 'json'
 
 class HSGetHours
   DAY_FORMAT            = '%a %b %d, %Y'
@@ -42,9 +40,6 @@ class HSGetHours
   
       opts.on("-u", "--username USERNAME", "Username:") do |v|
         options[:username] = v
-      end
-      opts.on("-p", "--password PASSWORD", "Password:") do |v|
-        options[:password] = v
       end
       opts.on("-c", "--calendar CALENDAR", "Calendar name") do |v|
         options[:calendar] = v
@@ -75,25 +70,54 @@ class HSGetHours
     end
   end
 
-  def handle_password
-    # If password wasn't specified, try to get it from KeyChain
-    if @password.nil?
-      #@password = HSCalendarPasswordController.passwordForUsername(@username)
-      @password = begin
-        $stderr.puts "Enter password: "
-        system 'stty -echo'
-        pass = STDIN.readline
-        system 'stty echo'
-        pass.gsub(/[\r\n]+/,'')
-      rescue => e
-        raise "Cannot read password from STDIN: "+e.inspect
-      end
-      if @password.nil? # Still nil? We couldn't get it, so error out
-        raise "Cannot find password for username #{@username}"
-      end
+  def gapi_client
+    @gapi_client ||= Google::APIClient.new(
+      :application_name => 'Hours Command Line',
+      :application_version => '1.0.0'
+    )
+  end
+
+  def gcal_api
+    @gcal_api ||= gapi_client.discovered_api('calendar', 'v3')
+  end
+
+  def gapi_secrets
+    @gapi_secrets ||= begin
+      secrets_file = File.join(hours_storage_dir,"client_secrets.json")
+      Google::APIClient::ClientSecrets.load(secrets_file)
+    end
+  end
+
+  def hours_storage_dir
+    @hours_storage_dir ||= begin
+      dir = File.join(ENV['HOME'],'.hours')
+      Dir.mkdir(dir) unless File.exists?(dir) && File.directory?(dir)
+      dir
+    end
+  end
+
+  def gcal_file_storage
+    @gcal_file_storage ||= begin
+      store_file = File.join(hours_storage_dir,"#{Digest::SHA1.hexdigest(@username)}-oauth2.json")
+      Google::APIClient::FileStorage.new(store_file)
+    end
+  end
+
+  def gapi_installed_app_flow
+    @gapi_installed_app_flow ||= begin
+      Google::APIClient::InstalledAppFlow.new(
+        :client_id => gapi_secrets.client_id, 
+        :client_secret => gapi_secrets.client_secret,
+        :scope => ['https://www.googleapis.com/auth/calendar']
+      )
+    end
+  end
+
+  def gapi_authorize
+    if gcal_file_storage.authorization
+      gapi_client.authorization = gcal_file_storage.authorization
     else
-      # User specified a password, so store it
-      #HSCalendarPasswordController.setPassword_forUsername(@password, @username)
+      gapi_client.authorization = gapi_installed_app_flow.authorize(gcal_file_storage)
     end
   end
 
@@ -125,50 +149,48 @@ class HSGetHours
     end_time   ||= Time.at( midnight )
     
     # Now convert to the desired API format
-    start_time = start_time.utc.xmlschema
-    end_time   = end_time.utc.xmlschema
-    
-    service = Service.new
-    service.debug = true if ['1',1,true,'true'].include? ENV['DEBUG']
-    service.authenticate(@username, @password)
-    
-    calendars = Calendar.find(service, 
-                             @calendar_name,
-                             {:scope => :first})
-    
-    if calendars and calendars.length > 0
-      calendar = calendars.first
+    start_time = start_time.xmlschema
+    end_time   = end_time.xmlschema
 
-      # Remove up to the last slash (/)
-      # There was a change in the API not yet supported by the gcal4ruby/gcal4data
-      # So, I need to obtain the calendar id from here, and unscape it so it will
-      # work properly
-      calendar_id = calendar.id.gsub(/^.+\//,'')
-      calendar_id = URI.unescape(calendar_id)
+    result = gapi_client.execute(
+      :api_method => gcal_api.calendar_list.list
+    )
 
-      events = Event.find(service, "",
-          { 'start-min' => start_time,
-            'start-max' => end_time, 
-            'max-results' => 10000,
-            :calendar => calendar_id }
-      )
+    calendars = JSON.parse(result.data.to_json)['items']
+    calendars = calendars.
+        select  { |c| c['summary'] == @calendar_name }.
+        collect { |c| c['id'] }
 
-      events.sort! { |a,b| a.start_time <=> b.start_time } 
-      return events
-    end
-    nil
+    raise "Calendar #{calendar_name} not found" unless calendars.size > 0
+
+    calendar_id = calendars.first
+
+    result = gapi_client.execute(
+      :api_method => gcal_api.events.list, 
+      :parameters => {
+        'calendarId' => calendar_id, 
+        'timeMin' => start_time,
+        'timeMax' => end_time,
+        'maxResults' => 10000
+      }
+    )
+
+    result.data.items
   end
 
   def print_summary(events)
     total_elapsed = 0
     total_day     = 0
     total_perday  = 0
-    prev_date = Time.at(events[0].start_time)
+    prev_date = Time.parse(events[0].start.dateTime.to_s)
     puts "#{prev_date.strftime(DAY_FORMAT)}"
     puts ('=' * 80) if @comments_only
     events.each do |e|
-      this_date = Time.at(e.start_time)
-      end_date  = Time.at(e.end_time)
+      e_start = Time.parse(e.start.dateTime.to_s)
+      e_end   = Time.parse(e.end.dateTime.to_s)
+
+      this_date = e_start
+      end_date  = e_end
       if prev_date.day != this_date.day
         puts "#{total_day} hours\n\n#{this_date.strftime(DAY_FORMAT)}"
         puts ('=' * 80) if @comments_only
@@ -176,17 +198,17 @@ class HSGetHours
         total_day = 0
       end
   
-      elapsed = (e.end_time - e.start_time) / ONE_HOUR_IN_SECONDS # time in hours
+      elapsed = (e_end - e_start) / ONE_HOUR_IN_SECONDS # time in hours
       total_elapsed += elapsed
       total_day     += elapsed
   
       if !@comments_only
         puts "#{this_date.strftime(TIME_FORMAT)} to #{end_date.strftime(TIME_FORMAT)} = #{elapsed}h \t(#{formatted_hours(elapsed)})" 
       else
-        puts "#{e.content}"
+        puts "#{e.description}"
       end
   
-      prev_date = Time.at(e.start_time)
+      prev_date = Time.at(e_start)
     end
     puts ('=' * 80) if @comments_only
     puts "#{prev_date.strftime(DAY_FORMAT)}: #{total_day} hours\n\n"
@@ -198,7 +220,7 @@ class HSGetHours
 
   def run
     parse_cmd_line_args
-    handle_password
+    gapi_authorize
     events = fetch_events(@start_time_str, @end_time_str)
     if events and events.size > 0
       print_summary(events)
