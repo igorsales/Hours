@@ -161,7 +161,7 @@ class HSGetHours
         select  { |c| c['summary'] == @calendar_name }.
         collect { |c| c['id'] }
 
-    raise "Calendar #{calendar_name} not found" unless calendars.size > 0
+    raise "Calendar #{@calendar_name} not found" unless calendars.size > 0
 
     calendar_id = calendars.first
 
