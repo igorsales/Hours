@@ -186,6 +186,7 @@ class HSGetHours
     puts "#{prev_date.strftime(DAY_FORMAT)}"
     puts ('=' * 80) if @comments_only
     events.each do |e|
+      next unless e.start && e.end
       e_start = Time.parse(e.start.dateTime.to_s)
       e_end   = Time.parse(e.end.dateTime.to_s)
 
